@@ -1046,6 +1046,24 @@ fieldset[disabled] .btn-inverse.active {
 .category_item.cat_special .page-subheading {
     background: #674941
 }
+.category_item.cat_1 .title_block {
+    color: cornflowerblue;
+}
+.category_item.cat_1 .page-subheading {
+    background: cornflowerblue;
+}
+.category_item.cat_2 .title_block {
+    color: olive;
+}
+.category_item.cat_2 .page-subheading {
+    background: olive;
+}
+.category_item.cat_3 .title_block {
+    color: seagreen;
+}
+.category_item.cat_3 .page-subheading {
+    background: seagreen;
+}
 #apsubcategoriestab_block .category_item:nth-child(2n+1) .category_productlist,
 #apsubcategoriestab_block .category_item:nth-child(2n+1) .category_desc {
     float: right
