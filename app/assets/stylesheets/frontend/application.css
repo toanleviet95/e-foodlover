@@ -29,4 +29,5 @@
  *= require frontend/jgrowl
  *= require frontend/responsive
  *= require frontend/retina-responsive
+  *= require frontend/style
  */

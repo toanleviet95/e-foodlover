@@ -1,0 +1,46 @@
+.chef_1{
+    top: 100px;
+    right: 70px;
+    position: relative;
+}
+.chef_2{
+    top: 100px;
+    right: 30px;
+    position: relative;
+}
+.chef_3{
+     top: 80px;
+     right: 10px;
+     position: relative;
+ }
+.chef_4{
+    top: 55px;
+    right: 55px;
+    position: relative;
+}
+.chef_5{
+    top: 65px;
+    right: 10px;
+    position: relative;
+}
+.chef_6{
+     top: 110px;
+     right: 10px;
+     position: relative;
+}
+.chef_7{
+    top: 55px;
+    right: 10px;
+    position: relative;
+}
+.chef_8{
+    top: 85px;
+    right: 10px;
+    position: relative;
+}
+.fix-banner img {
+    height: 410px;
+}
+footer{
+    margin-top: 20px;
+}
