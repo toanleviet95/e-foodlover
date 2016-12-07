@@ -1016,52 +1016,52 @@ fieldset[disabled] .btn-inverse.active {
 .category_item .category_sub ul>li.active a:focus {
     border: 0
 }
-.category_item.cat_snack .title_block {
+.category_item.cat_1 .title_block {
     color: #6BC15F
 }
-.category_item.cat_snack .page-subheading {
+.category_item.cat_1 .page-subheading {
     background: #6BC15F
 }
-.category_item.cat_fruit .title_block {
+.category_item.cat_2 .title_block {
     color: #F8694D
 }
-.category_item.cat_fruit .page-subheading {
+.category_item.cat_2 .page-subheading {
     background: #F8694D
 }
-.category_item.cat_import .title_block {
+.category_item.cat_3 .title_block {
     color: #3CB38D
 }
-.category_item.cat_import .page-subheading {
+.category_item.cat_3 .page-subheading {
     background: #3CB38D
 }
-.category_item.cat_beverage .title_block {
+.category_item.cat_4 .title_block {
     color: #D4595E
 }
-.category_item.cat_beverage .page-subheading {
+.category_item.cat_4 .page-subheading {
     background: #D4595E
 }
-.category_item.cat_special .title_block {
+.category_item.cat_5 .title_block {
     color: #674941
 }
-.category_item.cat_special .page-subheading {
+.category_item.cat_5 .page-subheading {
     background: #674941
 }
-.category_item.cat_1 .title_block {
+.category_item.cat_6 .title_block {
     color: cornflowerblue;
 }
-.category_item.cat_1 .page-subheading {
+.category_item.cat_6 .page-subheading {
     background: cornflowerblue;
 }
-.category_item.cat_2 .title_block {
+.category_item.cat_7 .title_block {
     color: olive;
 }
-.category_item.cat_2 .page-subheading {
+.category_item.cat_7 .page-subheading {
     background: olive;
 }
-.category_item.cat_3 .title_block {
+.category_item.cat_8 .title_block {
     color: seagreen;
 }
-.category_item.cat_3 .page-subheading {
+.category_item.cat_8 .page-subheading {
     background: seagreen;
 }
 #apsubcategoriestab_block .category_item:nth-child(2n+1) .category_productlist,

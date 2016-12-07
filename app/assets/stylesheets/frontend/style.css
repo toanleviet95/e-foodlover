@@ -38,9 +38,15 @@
     right: 10px;
     position: relative;
 }
-.fix-banner img {
-    height: 410px;
+.banner_1{
+    width: 281px;
+}
+.banner_2{
+
 }
 footer{
     margin-top: 20px;
+}
+hr{
+    border-top: 2px solid #eee;
 }

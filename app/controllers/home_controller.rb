@@ -1,5 +1,21 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.order(sort_order: :asc).all
+    @sliders = Slider.new.get_sliders #Slider
+    @categories = Category.new.get_parent_categories #Loại cha
+    @partial_category_promotes = [] #Sản phẩm khuyến mãi
+    @child_categories = [] #Loại con
+    @foods = [] #Sản phẩm
+    @today_foods = Food.new.get_today_foods #Sản phẩm trong mục ăn gì hôm nay
+    index = 0
+    #Duyệt vòng lặp loại cha để gán giá trị
+    @categories.each do |category|
+      @partial_category_promotes << Food.new.get_partial_category_promotes(category.id)
+      @child_categories << Category.new.get_child_categories(category.id)
+      #Duyệt vòng lặp loại con để lấy sản phẩm trong từng loại con có trong loại cha
+      @child_categories[index].each do |child_category|
+        @foods << Food.new.get_latest_foods(child_category.id)
+      end
+      index = index + 1
+    end
   end
 end

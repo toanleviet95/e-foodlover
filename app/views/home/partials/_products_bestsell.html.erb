@@ -1,399 +1,62 @@
 <div class="products_bestsell col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-
-
   <div class="products_block block">
-
     <h4 class="page-subheading ">
       Ăn gì hôm nay ?
     </h4>
-
     <div class="block_content">
-
-
       <div id="product_list_bestsell" class="product_list_owl owl-carousel">
-                  <div class="product_block  ">
+        <% @today_foods.each do |today_food| %>
+                  <div class="product_block">
                     <div class="item-variant clearfix product-block">
                       <div class="product-meta">
                         <h3 class="name">
-                          <a class="product-name" href="/sup-thap-cam">Súp thập cẩm</a>
+                          <a class="product-name" href="/"><%= today_food.name %></a>
                         </h3>
 
                         <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995767"></span>
+                          <span class="shopify-product-reviews-badge" data-id="<%= today_food.id %>"></span>
                         </div>
 
                         <div class="content_price clearfix">
-                          <span class="price product-price sale-price">80.000₫</span>
-
-                          <span class="old-price product-price">87.000₫</span>
-
+                          <span class="price product-price sale-price"><%= today_food.promote_price ? number_to_currency(today_food.promote_price, :unit => '', :precision => 0) : number_to_currency(today_food.price, :unit => '', :precision => 0) %>₫</span>
+                          <span class="old-price product-price"><%= today_food.promote_price ? number_to_currency(today_food.price,:unit => '', :precision => 0)+'₫' : '' %></span>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi tiếng trên khu vực Phố Cổ chuyên về ẩm thực của Singapore như các món về gà...
-                        </div>
                       </div>
                       <div class="product-image-container image">
-                        <a class="product_img_link" href="/sup-thap-cam" title="Súp thập cẩm">
-                          <%= image_tag "products/4952601sup-jpeg-fix.jpg", :class=>"replace-2x img-responsive" %>
-
+                        <a class="product_img_link" href="/" title="Súp thập cẩm">
+                          <%= image_tag 'food/'+today_food.image_url_1, :class=>"replace-2x img-responsive" %>
                         </a>
-
-
+                        <% if today_food.promote_price %>
                         <span class="product-label sale-box">
-              <span class="label-sale">Sale</span>
-                                                                            </span>
-
-
+                          <span class="label-sale">-<%= sale_off(today_food.price, today_food.promote_price) %>%</span>
+                        </span>
+                        <% end %>
                         <div class="right">
                           <div class="action">
-
-
                             <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/sup-thap-cam" data-toggle="tooltip" title="" data-original-title="Xem">
+                              <a class="btn btn-inverse lnk_view" href="/" data-toggle="tooltip" title="" data-original-title="Xem">
                                 <i class="fa fa-eye"></i>
                               </a>
                             </div>
                             <div class="cart addtocart">
-
                               <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995767">
-                                <input type="hidden" name="id" value="1504339">
-
-
-                                <input type="hidden" name="variantId" value="1504339">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
+                                <input type="hidden" name="id" value="<%= today_food.id %>">
+                                <input type="hidden" name="variantId" value="<%= today_food.id %>">
+                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip">
                                   <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
+                                  <span>Chọn</span>
                                 </button>
-
-
                               </form>
                             </div>
                           </div>
                         </div>
                       </div>
-
-
+                      <hr/>
+                      <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
                     </div>
                   </div>
-
-                  <div class="product_block  ">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name" href="/salad-garden"
-                             title="Salad Garden">Salad Garden</a>
-                        </h3>
-
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995765"></span>
-                        </div>
-
-                        <div class="content_price clearfix">
-                                                                                <span class="price product-price sale-price">
-                45.000₫
-              </span>
-
-                          <span class="old-price product-price">48.000₫</span>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi tiếng trên khu vực Phố Cổ chuyên về ẩm thực của Singapore như các món về gà...
-                        </div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/salad-garden" title="Salad Garden">
-                          <%= image_tag "products/68-dc4f7172-ea-fix.jpg", :class=>"replace-2x img-responsive" %>
-                        </a>
-
-
-                        <span class="product-label sale-box">
-              <span class="label-sale">Sale</span>
-                                                                            </span>
-
-
-                        <div class="right">
-                          <div class="action">
-
-
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/salad-garden" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995765">
-                                <input type="hidden" name="id" value="1504335">
-
-
-                                <input type="hidden" name="variantId" value="1504335">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
-                                </button>
-
-
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-
-                  <div class="product_block  ">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name" href="/my-y-xot-bo"
-                             title="Mỳ ý xốt bò">Mỳ ý xốt bò</a>
-                        </h3>
-
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995761"></span>
-                        </div>
-
-                        <div class="content_price clearfix">
-                                                                                <span class="price product-price sale-price">
-                214.000₫
-              </span>
-
-                          <span class="old-price product-price">220.000₫</span>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi tiếng trên khu vực Phố Cổ chuyên về ẩm thực của Singapore như các món về gà...
-                        </div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/my-y-xot-bo" title="Mỳ ý xốt bò">
-                          <%= image_tag "products/5237186pasta0101-fix.jpg", :class=>"replace-2x img-responsive" %>
-                        </a>
-
-
-                        <span class="product-label sale-box">
-              <span class="label-sale">Sale</span>
-                                                                            </span>
-
-
-                        <div class="right">
-                          <div class="action">
-
-
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/my-y-xot-bo" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995761">
-                                <input type="hidden" name="id" value="1504330">
-
-
-                                <input type="hidden" name="variantId" value="1504330">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
-                                </button>
-
-
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-
-                  <div class="product_block  ">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name" href="/com-ga"
-                             title="Cơm gà">Cơm gà</a>
-                        </h3>
-
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995756"></span>
-                        </div>
-
-                        <div class="content_price clearfix">
-                                                                                <span class="price product-price ">
-                40.000₫
-              </span>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product-desc">
-                          Trong ẩm thực Việt, có lẽ chẳng món ăn nào “dễ chịu” như gỏi cuốn. Dùng làm thức ăn nhẹ cũng được, mà ăn no căng bụng cũng...
-                        </div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/com-ga" title="Cơm gà">
-                          <%= image_tag "products/4556114201404-fix.jpg", :class=>"replace-2x img-responsive" %>
-                        </a>
-
-
-                        <div class="right">
-                          <div class="action">
-
-
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/com-ga" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995756">
-                                <input type="hidden" name="id" value="1504324">
-
-
-                                <input type="hidden" name="variantId" value="1504324">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
-                                </button>
-
-
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-
-                  <div class="product_block  ">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name"
-                             href="/com-van-phong"
-                             title="Cơm văn phòng">Cơm văn phòng</a>
-                        </h3>
-
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995753"></span>
-                        </div>
-
-                        <div class="content_price clearfix">
-                                                                                <span class="price product-price ">
-                35.000₫
-              </span>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product-desc">
-                          Món ăn đơn giản với chiếc bánh tráng mỏng, dăm loại rau, lát thịt luộc, chén nước chấm... nhưng đã níu chân biết bao du khách khi đến...
-                        </div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/com-van-phong" title="Cơm văn phòng">
-                          <%= image_tag "products/552048541-fix.jpg", :class=>"replace-2x img-responsive" %>
-                        </a>
-
-
-                        <div class="right">
-                          <div class="action">
-
-
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/com-van-phong" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995753">
-                                <input type="hidden" name="id" value="1504321">
-
-
-                                <input type="hidden" name="variantId" value="1504321">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
-                                </button>
-
-
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-
-                  <div class="product_block  ">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name" href="/cake-weet"
-                             title="Cake weet">Cake weet</a>
-                        </h3>
-
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="995748"></span>
-                        </div>
-
-                        <div class="content_price clearfix">
-                                                                                <span class="price product-price ">
-                50.000₫
-              </span>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product-desc">
-                          Trứng được ăn hàng ngày. Nó có mặt khắp nơi, từ các nhà hàng sang trọng cho đến những hàng ăn bình dân hay tại nhà. Trứng đúc...
-                        </div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/cake-weet" title="Cake weet">
-                          <%= image_tag "products/fooddessertcakestrawber2-fix.jpg", :class=>"replace-2x img-responsive" %>
-                        </a>
-
-
-                        <div class="right">
-                          <div class="action">
-
-
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/cake-weet" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995748">
-                                <input type="hidden" name="id" value="1504316">
-
-
-                                <input type="hidden" name="variantId" value="1504316">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip" title="" data-original-title="Mua ngay">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Mua ngay</span>
-                                </button>
-
-
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-
+            <% end %>
         </div>
       </div>
 

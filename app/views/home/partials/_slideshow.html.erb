@@ -18,7 +18,7 @@
               <ul class="nav navbar-nav nav-verticalmenu">
                 <% @categories.each do |category| %>
                     <li class="parent dropdown">
-                      <a class="dropdown-toggle has-category" data-toggle="dropdown" href="/collections/all">
+                      <a class="dropdown-toggle has-category" data-toggle="dropdown" href="/">
                           <span class="menu-icon has-icon">
                             <% if category.name == 'cơm' %>
                               <i class="fa fa-university"></i>
@@ -122,35 +122,35 @@
                         <div class="mega-col col-sm-3">
                           <% if category.name == 'cơm' %>
                               <div class="chef_1">
-                                <%= image_tag "chef_1.png"%>
+                                <%= image_tag "chefs/chef_1.png"%>
                               </div>
                           <% elsif category.name == 'bún & mỳ' %>
                               <div class="chef_2">
-                                <%= image_tag "chef_2.png"%>
+                                <%= image_tag "chefs/chef_2.png"%>
                               </div>
                           <% elsif category.name == 'lẩu' %>
                               <div class="chef_3">
-                                <%= image_tag "chef_3.png"%>
+                                <%= image_tag "chefs/chef_3.png"%>
                               </div>
                           <% elsif category.name == 'đồ ăn nhanh' %>
                               <div class="chef_4">
-                                <%= image_tag "chef_4.png"%>
+                                <%= image_tag "chefs/chef_4.png"%>
                               </div>
                           <% elsif category.name == 'đồ nướng' %>
                               <div class="chef_5">
-                                <%= image_tag "chef_5.png"%>
+                                <%= image_tag "chefs/chef_5.png"%>
                               </div>
                           <% elsif category.name == 'hải sản' %>
                               <div class="chef_6">
-                                <%= image_tag "chef_6.png"%>
+                                <%= image_tag "chefs/chef_6.png"%>
                               </div>
                           <% elsif category.name == 'bánh kẹo' %>
                               <div class="chef_7">
-                                <%= image_tag "chef_7.png"%>
+                                <%= image_tag "chefs/chef_7.png"%>
                               </div>
                           <% else %>
                               <div class="chef_8">
-                                <%= image_tag "chef_8.png"%>
+                                <%= image_tag "chefs/chef_8.png"%>
                               </div>
                           <% end %>
                         </div>
@@ -179,135 +179,43 @@
 
       <div class="leo-viewport" style="overflow: hidden; position: relative;">
         <ul id="sliderlayer" class="slides clearfix" style="width: 800%; transition-duration: 0s; transform: translate3d(-1152px, 0px, 0px);">
-          <li data-thumb="images/themes/49902/assets/slideshow_image_3.jpg?1478506655659" class="clone" aria-hidden="true" style="float: left; display: block; width: 576px;">
-
-            <a href="#" class="slide-link">
-              <%= image_tag "themes/49902/assets/slideshow_image_3.jpg", :class=>"img-responsive" %>
+          <% @sliders.each do |slider| %>
+          <li aria-hidden="true" style="float: left; display: block; width: 576px;">
+            <a href="" class="slide-link">
+              <%= image_tag 'sliders/'+slider.image_url, :class=>'img-responsive' %>
             </a>
-
             <div class="slide-caption caption_3">
               <div class="container">
-
-                <div class="text_first">Thức ăn</div>
-
-
-                <h3>100%</h3>
-
-
-                <p>Tươi sạch, vệ sinh, đảm bảo an toàn thực phẩm</p>
-
-
+                <%= slider.content.html_safe %>
               </div>
             </div>
           </li>
-
-
-          <li data-thumb="images/themes/49902/assets/slideshow_image_1.jpg?1478506655659" class="" style="float: left; display: block; width: 576px;">
-
-            <a href="/collections/all" class="slide-link">
-              <%= image_tag "themes/49902/assets/slideshow_image_1.jpg", :class=>"img-responsive" %>
-            </a>
-
-            <div class="slide-caption caption_1">
-              <div class="container">
-
-                <div class="text_first">Miễn phí</div>
-
-
-                <h3>Đồ uống</h3>
-
-
-                <p>Khi dùng các món ăn tại nhà hàng Leo Food</p>
-
-
-              </div>
-            </div>
-          </li>
-
-
-          <li data-thumb="images/themes/49902/assets/slideshow_image_3.jpg?1478506655659" class="leo-active-slide" style="float: left; display: block; width: 576px;">
-
-            <a href="#" class="slide-link">
-              <%= image_tag "themes/49902/assets/slideshow_image_3.jpg", :class=>"img-responsive" %>
-            </a>
-
-            <div class="slide-caption caption_3">
-              <div class="container">
-
-                <div class="text_first">Thức ăn</div>
-
-
-                <h3>100%</h3>
-
-
-                <p>Tươi sạch, vệ sinh, đảm bảo an toàn thực phẩm</p>
-
-
-              </div>
-            </div>
-          </li>
-
-
-          <li data-thumb="images/themes/49902/assets/slideshow_image_1.jpg?1478506655659" class="clone" aria-hidden="true" style="float: left; display: block; width: 576px;">
-
-            <a href="/collections/all" class="slide-link">
-              <%= image_tag "themes/49902/assets/slideshow_image_1.jpg", :class=>"img-responsive" %>
-            </a>
-
-            <div class="slide-caption caption_1">
-              <div class="container">
-
-                <div class="text_first">Miễn phí</div>
-
-
-                <h3>Đồ uống</h3>
-
-
-                <p>Khi dùng các món ăn tại nhà hàng Leo Food</p>
-
-
-              </div>
-            </div>
-          </li>
+          <% end %>
         </ul>
       </div>
-      <ol class="leo-control-nav leo-control-paging">
-        <li><a class="">1</a>
-        </li>
-        <li><a class="leo-active">2</a>
-        </li>
-      </ol>
-      <ul class="leo-direction-nav">
-        <li><a class="leo-prev" href="#">Previous</a>
-        </li>
-        <li><a class="leo-next" href="#">Next</a>
-        </li>
-      </ul>
     </div>
     <script>
       $(document).ready(function() {
         $('.slider-container').flexslider({
           namespace: "leo-",
           animation: "slide",
-          smoothHeight: false
+          smoothHeight: false,
+            controlNav: false
         });
       });
     </script>
   </div>
   <div class="col-lg-3 hidden-md hidden-xs hidden-sm">
-
-
     <div class="widget-banner block">
       <div class="block_content">
         <div class="image-box">
           <div class="img-banner effect">
             <a href="collections/all">
-              <%= image_tag "banner-right-home.png", :class=>"img-responsive" %>
+              <%= image_tag "banners/banner-right-home.png", :class=>"img-responsive" %>
             </a>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
