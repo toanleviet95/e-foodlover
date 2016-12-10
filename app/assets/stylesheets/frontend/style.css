@@ -50,3 +50,6 @@ footer{
 hr{
     border-top: 2px solid #eee;
 }
+.product_list .product_block:last-child {
+    border-right: 1px solid #e5e5e5;
+}

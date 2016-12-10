@@ -16,7 +16,7 @@
             <% @categories.each do |category| %>
                 <div class="category_item block clearfix cat_<%= category.id %>">
                   <div class="hidden-md col-lg-3 col-md-12 block category_productlist">
-                    <div id="productlistcategory01" class="products_block block">
+                    <div id="productlistcategory<%= category.id %>" class="products_block block">
                       <h4 class="page-subheading ">
                         Ăn rẻ bất ngờ !!!
                       </h4>
@@ -26,6 +26,7 @@
                             <div class="item active">
                               <div class="product_list">
                                 <div class="product-items row">
+                                  <% if @partial_category_promotes[index].length > 0 %>
                                   <% @partial_category_promotes[index].each do |partial_category_promote| %>
                                   <div class="product_block col-md-12 col-sm-12 col-xs-12 col-sp-12">
                                     <div class="item-variant clearfix product-block">
@@ -70,6 +71,9 @@
                                     </div>
                                   </div>
                                       <% end %>
+                                      <% else %>
+                                      <h5 style="font-weight: bold" class="text-center">Chưa có món ăn khuyến mãi <i class="fa fa-smile-o"></i></h5>
+                                  <% end %>
                                 </div>
                               </div>
                             </div>
@@ -80,7 +84,7 @@
                     <script type="text/javascript">
                         $(document).ready(function() {
 
-                            $('#productlistcategory01').carousel({
+                            $('#productlistcategory<%= category.id %>').carousel({
                                 pause: 'hover',
                                 interval: 0
                             });
@@ -91,19 +95,19 @@
                   <div class="col-xs-12 col-sm-12 col-lg-9 col-md-12">
                     <div class="category_sub">
                       <h3 class="title_block pull-left">
-                        <% if category.name == 'cơm' %>
+                        <% if category.name == 'Cơm' %>
                             <i class="fa fa-university"></i>&nbsp;Cơm
-                        <% elsif category.name == 'bún & mỳ' %>
+                        <% elsif category.name == 'Bún & Mỳ' %>
                             <i class="fa fa-cutlery"></i>&nbsp;Bún & Mỳ
-                        <% elsif category.name == 'lẩu' %>
+                        <% elsif category.name == 'Lẩu' %>
                             <i class="fa fa-ship"></i>&nbsp;Lẩu
-                        <% elsif category.name == 'đồ ăn nhanh' %>
+                        <% elsif category.name == 'Đồ ăn nhanh' %>
                             <i class="fa fa-spoon"></i>&nbsp;Đồ ăn nhanh
-                        <% elsif category.name == 'đồ nướng' %>
+                        <% elsif category.name == 'Đồ nướng' %>
                             <i class="fa fa-fire"></i>&nbsp;Đồ nướng
-                        <% elsif category.name == 'hải sản' %>
+                        <% elsif category.name == 'Hải sản' %>
                             <i class="fa fa-tint"></i>&nbsp;Hải sản
-                        <% elsif category.name == 'bánh kẹo' %>
+                        <% elsif category.name == 'Bánh kẹo' %>
                             <i class="fa fa-birthday-cake"></i>&nbsp;Bánh kẹo
                         <% else %>
                             <i class="fa fa-glass"></i>&nbsp;Đồ uống
@@ -115,32 +119,32 @@
                             <% i = i + 1 %>
                             <li <%= i == 1?'class=active':'' %>>
                               <a href="#productTabs<%= category.id %>_<%= i %>" data-toggle="tab">
-                                <span><%= child_category.name.capitalize %></span>
+                                <span><%= child_category.name %></span>
                               </a>
                             </li>
                         <% end %>
                       </ul>
                     </div>
                     <div class="category_desc fix-banner">
-                      <% if category.name == 'cơm' %>
+                      <% if category.name == 'Cơm' %>
                           <%= image_tag "banners/banner_com_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_com_2.jpg", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'bún & mỳ' %>
+                      <% elsif category.name == 'Bún & Mỳ' %>
                           <%= image_tag "banners/banner_bun_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_bun_2.png", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'lẩu' %>
+                      <% elsif category.name == 'Lẩu' %>
                           <%= image_tag "banners/banner_lau_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_lau_2.jpg", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'đồ ăn nhanh' %>
+                      <% elsif category.name == 'Đồ ăn nhanh' %>
                           <%= image_tag "banners/banner_nhanh_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_nhanh_2.jpg", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'đồ nướng' %>
+                      <% elsif category.name == 'Đồ nướng' %>
                           <%= image_tag "banners/banner_nuong_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_nuong_2.jpg", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'hải sản' %>
+                      <% elsif category.name == 'Hải sản' %>
                           <%= image_tag "banners/banner_hai_san_1.png", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_hai_san_2.jpg", :class=>"replace-2x img-responsive" %>
-                      <% elsif category.name == 'bánh kẹo' %>
+                      <% elsif category.name == 'Bánh kẹo' %>
                           <%= image_tag "banners/banner_banh_1.jpg", :class=>"replace-2x img-responsive" %>
                           <%= image_tag "banners/banner_banh_2.jpg", :class=>"replace-2x img-responsive" %>
                       <% else %>
@@ -160,9 +164,9 @@
                                   <div class="carousel-inner">
                                     <div class="item active">
                                       <div class="product_list">
-                                        <!--<% foods = Food.where(category_id: child_category.id, status: true).last(6) %>-->
+                                        <% if @foods[[index,i-1]].length > 0 and @child_categories[index].length > 0 %>
                                         <% j = 0 %>
-                                        <% @foods[i-1].each do |food| %>
+                                        <% @foods[[index,i-1]].each do |food| %>
                                             <% if j % 3 == 0 %>
                                         <div class="row product-items">
                                           <% end %>
@@ -170,7 +174,7 @@
                                             <div class="item-variant clearfix product-block">
                                               <div class="product-meta">
                                                 <h3 class="name">
-                                                  <a class="product-name" href="/"><%= food.name %></a>
+                                                  <a class="product-name" title="<%= food.name %>" href="/"><%= food.name.length > 21?food.name[0..21]+'...':food.name %></a>
                                                 </h3>
                                                 <div class="review clearfix">
                                                   <span class="shopify-product-reviews-badge" data-id="<%= food.id %>"></span>
@@ -216,11 +220,13 @@
                                             </div>
                                           </div>
                                             <% j = j + 1 %>
-                                            <% if j % 3 == 0 %>
+                                            <% if j % 3 == 0 || j == (@foods[[index,i-1]].length) %>
                                         </div>
                                                 <% end %>
-
                                         <% end %>
+                                            <% else %>
+                                        <h3 class="text-center">Hiện tại chưa có món ăn <i class="fa fa-smile-o"></i></h3>
+                                            <% end %>
                                       </div>
                                     </div>
                                   </div>

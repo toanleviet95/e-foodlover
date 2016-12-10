@@ -4,6 +4,6 @@ class Category < ApplicationRecord
     Category.where(parent_id: 0).order(sort_order: :asc)
   end
   def get_child_categories(category_id)
-    Category.where(parent_id: category_id)
+    Category.where(parent_id: category_id).order(sort_order: :asc)
   end
 end
