@@ -33,6 +33,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Font-awesome Stylesheet
 gem "font-awesome-rails"
 
+# Use Will Paginate
+gem 'will_paginate-bootstrap'
+
+# Slim progress bars for Ajax'y applications
+gem 'nprogress-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

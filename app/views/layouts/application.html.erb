@@ -41,7 +41,15 @@
               }
             });
           })
-        }(window.jQuery)
+        }(window.jQuery);
+          $('#btn_tim_kiem').click(function(){
+             var key = $('#tu_khoa').val();
+             if(!key.trim()){
+                 $('#tu_khoa').val('');
+                 return false;
+             }
+          });
+        backtotop();
       </script>
 
     </section>
@@ -50,9 +58,7 @@
       <i class="fa fa-angle-up"></i>
       <span class="return-icon">Top</span>
     </div>
-
   </div>
   <%= render "shared/mobile_menu" %>
-
   </body>
 </html>

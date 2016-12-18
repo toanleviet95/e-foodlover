@@ -1,0 +1,102 @@
+<section id="columns" class="columns-container">
+  <div class="container">
+    <div class="row">
+      <div id="center_column" class="center_column col-md-12">
+        <div id="search-page">
+          <h2 class="h2 text-center">Kết quả tìm kiếm</h2>
+          <div id="search_block_page" class="">
+            <form action="/tim-kiem" method="get" class="search-bar" role="search">
+              <input id="search_querry_page" class="search_query form-control" type="search" name="key" value="<%= @key %>" placeholder="Tên món ăn bạn cần tìm ?" aria-label="Tên món ăn bạn cần tìm ?">
+              <button id="search_button_page" class="btn btn-sm btn-outline" type="submit">
+                <i class="fa fa-search"></i>
+                <span class="fallback-text">Tìm kiếm</span>
+              </button>
+            </form>
+          </div>
+          <div class="product_list grid">
+            <% if @foods.length > 0%>
+                <% i = 0 %>
+                <% @foods.each do |food| %>
+                    <% if i % 4 == 0 %>
+                      <div class="row">
+                    <% end %>
+                      <div class="product_block col-md-3 col-xs-6 col-sp-12 border-product-search">
+                        <div class="item-variant clearfix product-block">
+                          <div class="product-meta">
+                            <h3 class="name">
+                              <a class="product-name" href="/" title="<%= food.name %>">
+                                <%= food.name.length > 21?food.name[0..21]+'...':food.name %>
+                              </a>
+                            </h3>
+                            <div class="review clearfix">
+                              <span class="shopify-product-reviews-badge" data-id="<%= food.id %>"></span>
+                            </div>
+                            <div class="content_price clearfix">
+                              <span class="price product-price sale-price"><%= food.promote_price ? number_to_currency(food.promote_price, :unit => '', :precision => 0) : number_to_currency(food.price, :unit => '', :precision => 0) %>₫</span>
+                              <span class="old-price product-price"><%= food.promote_price ? number_to_currency(food.price,:unit => '', :precision => 0)+'₫' : '' %></span>
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="product-image-container image">
+                            <a class="product_img_link" href="/" title="<%= food.name %>">
+                              <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive" %>
+                            </a>
+                            <% if food.promote_price %>
+                              <span class="product-label sale-box">
+                                <span class="label-sale">-<%= sale_off(food.price, food.promote_price) %>%</span>
+                              </span>
+                            <% end %>
+                            <div class="right">
+                              <div class="action">
+                                <div class="view_detail">
+                                  <a class="btn btn-inverse lnk_view" href="/" data-toggle="tooltip" title="" data-original-title="Xem">
+                                    <i class="fa fa-eye"></i>
+                                  </a>
+                                </div>
+                                <div class="cart addtocart">
+                                  <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-1441165">
+                                    <input type="hidden" name="id" value="<%= food.id %>">
+                                    <input type="hidden" name="variantId" value="<%= food.id %>">
+                                    <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip">
+                                      <i class="fa fa-shopping-cart"></i>
+                                      <span>Chọn</span>
+                                    </button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr/>
+                          <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
+                        </div>
+                      </div>
+                    <% i = i + 1 %>
+                    <% if i % 4 == 0 || i == @foods.length %>
+                    </div>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                  <h3 class="text-center">Không có kết quả cho món ăn bạn tìm <i class="fa fa-smile-o"></i></h3>
+                <% end %>
+          </div>
+
+
+          <div class="text-center">
+            <div id="pagination" class="clearfix">
+              <%= will_paginate @foods, renderer: BootstrapPagination::Rails %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+    $('#search_button_page').click(function(){
+        var key = $('#search_querry_page').val();
+        if(!key.trim()){
+            $('#search_querry_page').val('');
+            return false;
+        }
+    });
+</script>

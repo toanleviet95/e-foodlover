@@ -2968,7 +2968,6 @@ ol {
 }
 #login-page .login-box .form-control {
     box-shadow: none;
-    max-width: 350px;
     margin-bottom: 20px;
     font-size: 13px;
 }
@@ -2983,7 +2982,6 @@ ol {
 }
 #login-page .register-box {
     border: 1px solid #e5e5e5;
-    min-height: 360px;
     padding: 20px;
     background: #fff;
 }
@@ -3832,7 +3830,6 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 	/*margin: 6px 10px 6px 0px;*/
 	background: #fff;
 	border: 1px #ddd solid;
-	width: auto;
 }
 /*/ Comments */
 

@@ -1,7 +1,7 @@
 #apollo-menu {
     font-family: Roboto;
-    background: #fff;
-    color: #000;
+    background: #333;
+    color: white;
     padding: 0px;
     margin: 0px
 }
@@ -10,7 +10,7 @@
     position: relative;
     display: block;
     text-align: center;
-    background-color: #fff
+    background-color: #333;
 }
 #apollo-menu .navbar {
     background: #fff;
@@ -43,7 +43,7 @@
     padding: 16px 20px;
     font-size: 12px;
     text-transform: uppercase;
-    color: #333;
+    color: white;
     letter-spacing: 1px;
     background-color: transparent;
     font-weight: bold;
@@ -54,7 +54,6 @@
 #apollo-menu .navbar-nav>li>a:focus,
 #apollo-menu .navbar-nav>li>a:active {
     color: #f8694d;
-    background-color: #fff
 }
 #apollo-menu .navbar-nav>li>a:after {
     content: "\f0de";
@@ -62,7 +61,7 @@
     position: absolute;
     bottom: -11px;
     left: 50%;
-    color: #333;
+    color: white;
     font-size: 16px;
     opacity: 0;
     filter: alpha(opacity=0);

@@ -5,7 +5,7 @@
         <div class="row">
           <div id="header_logo" class="inner col-lg-3 col-md-3 col-sm-4 col-xs-8">
 
-            <h1 class="pull-left" itemscope="" itemtype="http://schema.org/Organization">
+            <h1 class="pull-left">
 
 
               <a href="/" itemprop="url">
@@ -27,13 +27,13 @@
 
 
                       <li class="active">
-                        <a class="" href="/" title="Trang chủ" target="_self">
+                        <a class="" href="/trang-chu" target="_self">
                           <span class="">Trang chủ</span>
                         </a>
                       </li>
 
                       <li class="active">
-                        <a class="" href="/" title="Trang chủ" target="_self">
+                        <a class="" href="/tai-khoan" target="_self">
                           <span class="">Tài khoản đăng bán</span>
                         </a>
                       </li>
@@ -225,61 +225,14 @@
 
                 <div class="nav-search visible">
 
-                  <form class="input-group searchbox search-box" action="/search" method="get" role="search">
-                    <input type="hidden" name="type" value="product">
-                    <div class="filter_type category_filter input-group-addon group-addon-select icon-select">
-                      <select name="category_id" class="no-border">
-                        <option value="0">Tất cả danh mục</option>
-
-                        <option value="/toan-chieu-rong" href="/toan-chieu-rong">
-                          Toàn chiều rộng
-                        </option>
-
-                        <option value="/dang-danh-sach-cot-phai" href="/dang-danh-sach-cot-phai">
-                          Dạng danh sách, cột phải
-                        </option>
-
-                        <option value="/dang-danh-sach-cot-trai" href="/dang-danh-sach-cot-trai">
-                          Dạng danh sách, cột trái
-                        </option>
-
-                        <option value="/dang-luoi-cot-phai" href="/dang-luoi-cot-phai">
-                          Dạng lưới, cột phải
-                        </option>
-
-                        <option value="/dang-luoi-cot-trai" href="/dang-luoi-cot-trai">
-                          Dạng lưới, cột trái
-                        </option>
-
-                        <option value="/khac" href="/khac">
-                          Khác
-                        </option>
-
-                        <option value="/ban-chay-nhat" href="/ban-chay-nhat">
-                          Bán chạy nhất
-                        </option>
-
-                        <option value="/do-an-nhanh" href="/do-an-nhanh">
-                          Đồ ăn nhanh
-                        </option>
-
-                        <option value="/collections-san-pham-moi" href="/collections-san-pham-moi">
-                          Sản phẩm mới
-                        </option>
-
-                        <option value="/collections-banh" href="/collections-banh">
-                          Bánh &amp; Pizza
-                        </option>
-
-                      </select>
-                    </div>
+                  <form class="input-group searchbox search-box" action="/tim-kiem" method="get" role="search">
                     <div class="search-input-wrapper clearfix input-group">
-                      <input class="search_query_top form-control input-lg input-search" size="35" type="search" name="query" value="" placeholder="Tìm kiếm ..." aria-label="Tìm kiếm ...">
+                      <input class="search_query_top form-control input-lg input-search" size="70" type="search" id="tu_khoa" name="key" value="" placeholder="Tên món ăn bạn cần tìm ?" aria-label="Tên món ăn bạn cần tìm ?">
                       <span class="input-group-addon input-group-search">
-            <button class="search_button" type="submit">
-              Tìm kiếm
-            </button>
-            </span>
+                        <button class="search_button" id="btn_tim_kiem" type="submit">
+                          Tìm kiếm
+                        </button>
+                      </span>
                     </div>
                   </form>
 

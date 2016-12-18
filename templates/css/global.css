@@ -2186,16 +2186,16 @@ fieldset[disabled] .btn-default.active {
     background-color: #f8694d;border-color:#f8694d
 }
 .btn-primary {
-    color: #fff;background-color:#f8694d;border-color:#f75434
+    color: #fff;background-color:#337ab7;border-color:#2e6da4
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-    color: #fff;background-color:#f64826;border-color:#e52d09
+    color: #fff;background-color:#286090;border-color:#204d74
 }
 .open .btn-primary.dropdown-toggle {
-    color: #fff;background-color:#f64826;border-color:#e52d09
+    color: #fff;background-color:#286090;border-color:#204d74
 }
 .btn-primary:active,
 .btn-primary.active {

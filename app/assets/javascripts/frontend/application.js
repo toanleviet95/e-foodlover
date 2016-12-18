@@ -13,6 +13,8 @@
 //= require jquery.js
 //= require jquery_ujs
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require frontend/modernizr.min
 //= require frontend/retina
 //= require frontend/countdown

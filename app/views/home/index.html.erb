@@ -113,6 +113,23 @@
                             <i class="fa fa-glass"></i>&nbsp;Đồ uống
                         <% end %>
                       </h3>
+                      <% if category.name == 'Cơm' %>
+                          <span class="badge badge_1"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả món cơm</a></span>
+                      <% elsif category.name == 'Bún & Mỳ' %>
+                          <span class="badge badge_2"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả món bún & mỳ</a></span>
+                      <% elsif category.name == 'Lẩu' %>
+                          <span class="badge badge_3"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả món lẩu</a></span>
+                      <% elsif category.name == 'Đồ ăn nhanh' %>
+                          <span class="badge badge_4"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả đồ ăn nhanh</a></span>
+                      <% elsif category.name == 'Đồ nướng' %>
+                          <span class="badge badge_5"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả đồ nướng</a></span>
+                      <% elsif category.name == 'Hải sản' %>
+                          <span class="badge badge_6"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả đồ hải sản</a></span>
+                      <% elsif category.name == 'Bánh kẹo' %>
+                          <span class="badge badge_7"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả bánh & kẹo</a></span>
+                      <% else %>
+                          <span class="badge badge_8"><a style="color: white" href="/loai-mon-an/<%= category.id %>">Xem tất cả đồ uống</a></span>
+                      <% end %>
                       <ul class="nav nav-tabs">
                         <% i = 0 %>
                         <% @child_categories[index].each do |child_category| %>

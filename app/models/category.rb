@@ -6,4 +6,7 @@ class Category < ApplicationRecord
   def get_child_categories(category_id)
     Category.where(parent_id: category_id).order(sort_order: :asc)
   end
+  def get_category(category_id)
+    Category.find(category_id)
+  end
 end

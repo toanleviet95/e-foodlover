@@ -1,0 +1,134 @@
+<div id="breadcrumbs">
+  <div class="container">
+    <nav role="navigation" aria-label="breadcrumbs">
+      <ol class="breadcrumb">
+        <li>
+          <a href="/">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+        <% if @parent_category %>
+            <li>
+            <a href="/loai-mon-an/<%= @parent_category.category_id %>">
+              <span>Các món <%= @parent_category.name.downcase %></span>
+            </a>
+            </li>
+        <% end %>
+        <li class="active">
+          <span>Các món <%= @category.name.downcase %></span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section id="columns" class="columns-container">
+  <div class="container">
+    <div id="top_column">
+      <div class="row">
+
+      </div>
+    </div>
+    <div class="row">
+      <aside>
+        <div id="left_column" class="left_column sidebar col-sm-4 col-md-3">
+          <% if @child_categories %>
+          <div id="categories_block" class="block">
+            <h4 class="title_block">Danh Mục Món <%= @category.name %>&nbsp;<i class="fa fa-bars bar_icon"></i></h4>
+            <div class="block_content" style="">
+              <ul class="list-block list-group list-unstyled">
+                <% @child_categories.each do |child_category| %>
+                <li>
+                  <a style="color:#fff" href="/loai-mon-an/<%= child_category.category_id %>">
+                    <%= child_category.name %>
+                  </a>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+          <%= render 'food/partials/filter' %>
+        </div>
+      </aside>
+
+
+      <div id="center_column" class="center_column col-sm-8 col-md-9">
+        <div class="product-border product_list grid">
+          <% if @foods.length > 0%>
+              <% i = 0 %>
+              <% @foods.each do |food| %>
+                  <% if i % 4 == 0 %>
+                    <div class="product-items">
+                      <div class="row">
+                    <% end %>
+                  <div class="product_block col-md-3 col-xs-6 col-sp-12">
+                    <div class="item-variant clearfix product-block">
+                      <div class="product-meta">
+                        <h3 class="name">
+                          <a class="product-name" href="/" title="<%= food.name %>">
+                            <%= food.name.length > 21?food.name[0..21]+'...':food.name %>
+                          </a>
+                        </h3>
+                        <div class="review clearfix">
+                          <span class="shopify-product-reviews-badge" data-id="<%= food.id %>"></span>
+                        </div>
+
+                        <div class="content_price clearfix">
+                          <span class="price product-price sale-price"><%= food.promote_price ? number_to_currency(food.promote_price, :unit => '', :precision => 0) : number_to_currency(food.price, :unit => '', :precision => 0) %>₫</span>
+                          <span class="old-price product-price"><%= food.promote_price ? number_to_currency(food.price,:unit => '', :precision => 0)+'₫' : '' %></span>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="product-image-container image">
+                        <a class="product_img_link" href="/" title="<%= food.name %>">
+                          <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive" %>
+                        </a>
+                        <% if food.promote_price %>
+                              <span class="product-label sale-box">
+                                <span class="label-sale">-<%= sale_off(food.price, food.promote_price) %>%</span>
+                              </span>
+                        <% end %>
+                        <div class="right">
+                          <div class="action">
+                            <div class="view_detail">
+                              <a class="btn btn-inverse lnk_view" href="/" data-toggle="tooltip" title="" data-original-title="Xem">
+                                <i class="fa fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="cart addtocart">
+                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-1441165">
+                                <input type="hidden" name="id" value="<%= food.id %>">
+                                <input type="hidden" name="variantId" value="<%= food.id %>">
+                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip">
+                                  <i class="fa fa-shopping-cart"></i>
+                                  <span>Chọn</span>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr/>
+                      <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
+                    </div>
+                  </div>
+                  <% i = i + 1 %>
+                  <% if i % 4 == 0 || i == @foods.length %>
+                      </div>
+                    </div>
+                  <% end %>
+              <% end %>
+          <% else %>
+              <h3 class="text-center">Hiện tại chưa có món ăn <i class="fa fa-smile-o"></i></h3>
+          <% end %>
+        </div>
+        <div class="content_sortPagiBar">
+          <div id="pagination" class="clearfix text-center">
+            <%= will_paginate @foods, renderer: BootstrapPagination::Rails %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
