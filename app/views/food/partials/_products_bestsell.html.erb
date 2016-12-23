@@ -1,0 +1,33 @@
+<div id="products_sider_block" class="block products_block nopadding">
+
+  <h4 class="title_block">
+    Bán Chạy Nhất
+  </h4>
+
+  <div class="block_content products-block" style="">
+    <ul class="products products-block">
+      <% @best_sell_foods.each do |best_sell_food| %>
+      <li class="media clearfix">
+        <div class="product-block">
+          <div class="product-container media">
+            <a class="products-block-image img pull-left" href="/<%= best_sell_food.url ? best_sell_food.url+'-p'+best_sell_food.id.to_s : '' %>" title="<%= best_sell_food.name %>">
+              <%= image_tag "food/"+best_sell_food.image_url_1, :class=>"replace-2x img-responsive" %>
+            </a>
+            <div class="media-body">
+              <div class="product-content">
+                <h5 class="name media-heading">
+                  <a class="product-name" href="/<%= best_sell_food.url ? best_sell_food.url+'-p'+best_sell_food.id.to_s : '' %>" title="<%= best_sell_food.name %>"><%= best_sell_food.name %></a>
+                </h5>
+                <div class="content_price price">
+                  <span class="price product-price sale-price"><%= best_sell_food.promote_price ? number_to_currency(best_sell_food.promote_price, :unit => '', :precision => 0) : number_to_currency(best_sell_food.price, :unit => '', :precision => 0) %>₫</span>
+                  <span class="old-price product-price"><%= best_sell_food.promote_price ? number_to_currency(best_sell_food.price,:unit => '', :precision => 0)+'₫' : '' %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

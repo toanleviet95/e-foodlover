@@ -1,0 +1,225 @@
+<div id="breadcrumbs">
+  <div class="container">
+    <nav role="navigation" aria-label="breadcrumbs">
+      <ol class="breadcrumb">
+        <li>
+          <a href="/">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+        <li>
+          <a href="/loai-mon-an/<%= @parent_category.id %>">
+            <span><%= @parent_category.name %></span>
+          </a>
+        </li>
+        <li>
+          <a href="/loai-mon-an/<%= @category.id %>">
+            <span><%= @category.name %></span>
+          </a>
+        </li>
+        <li class="active">
+          <span><%= @food.name %></span>
+        </li>
+
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section id="columns" class="columns-container product">
+  <div class="container">
+    <div class="row">
+      <div id="center_column" class="center_column col-xs-12 col-sm-8 col-md-9">
+        <div>
+          <div class="primary_block">
+            <div class="row">
+              <div class="product-left-column col-xs-12 col-sm-12 col-md-5">
+                  <div class="sp-loading"><%= image_tag "sp-loading.gif" %><br>LOADING IMAGES</div>
+                  <div class="sp-wrap">
+                    <% if @food.image_url_1 %>
+                      <a href="<%= image_url('food/'+@food.image_url_1) %>"><%= image_tag 'food/'+@food.image_url_1 %></a>
+                    <% end %>
+                    <% if @food.image_url_2 %>
+                      <a href="<%= image_url('food/'+@food.image_url_2) %>"><%= image_tag 'food/'+@food.image_url_2 %></a>
+                    <% end %>
+                    <% if @food.image_url_3 %>
+                      <a href="<%= image_url('food/'+@food.image_url_3) %>"><%= image_tag 'food/'+@food.image_url_3 %></a>
+                    <% end %>
+                  </div>
+              </div>
+              <div class="product-center-column col-xs-12 col-sm-12 col-md-7">
+                <h1><%= @food.name %></h1>
+                <div class="product-description rte"><%= @food.summary %></div>
+                <div class="content_price">
+                  <span id="ProductPrice" class="h2">
+                    <%= @food.promote_price ? number_to_currency(@food.promote_price, :unit => '', :precision => 0) : number_to_currency(@food.price, :unit => '', :precision => 0) %>₫
+									</span>
+                </div>
+                <div class="product-extra">
+                  <ul class="list-unstyled description no-padding">
+                    <% if @food.promote_price %>
+                        <li><i class="fa fa-chevron-right"></i>
+                          <b>Giá cũ: </b><span class="old-price product-price"><%= number_to_currency(@food.price, :unit => '', :precision => 0) %>₫</span>&nbsp;-&nbsp;
+                          <b>Tiết kiệm: </b><span style="color: #f8694d; font-weight: bold"><%= sale_off(@food.price, @food.promote_price) %>%</span>
+                        </li>
+                    <% end %>
+                    <li><i class="fa fa-chevron-right"></i><b>Đầu bếp: </b> Toàn Lê</li>
+                    <li><i class="fa fa-chevron-right"></i><b>Tình trạng: </b>
+                      <% if @food.status %>
+                        Còn hàng
+                      <% else %>
+                        Hết hàng
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="product-right-column col-xs-12 col-sm-12 col-md-push-5 col-md-12">
+                <div>
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-to-cart-form">
+                    <div class="quantity_wanted_p clearfix">
+                      <label for="qty" class="quantity-selector">Số lượng cần mua</label>
+                      <div class="pull-left">
+                        <div class="custom pull-left">
+                          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="input-text qty fix-inp-product">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="border-box">
+                      <button style="margin-left: 10px" class="btn btn-cart fix-btn-product">
+                        <i class="fa fa-cart-plus"></i>&nbsp;Thêm vào giỏ hàng
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <!--<div class="line-product"></div>-->
+                <!--<ul id="usefull_link_block" class="clearfix no-print list-inline">-->
+                  <!--<li class="print">-->
+                    <!--<a href="javascript:print();"><i class="fa fa-print"></i> In</a>-->
+                  <!--</li>-->
+                <!--</ul>-->
+                <!--<div class="line-product"></div>-->
+                <div class="socialsharing_product no-print">
+                  <ul class="social-sharing list-unstyled">
+                    <li>Chia sẻ&nbsp;
+                      <a class="btn social-sharing btn-facebook" href="javascript:void(0);" data-type="facebook">
+                        <i class="fa fa-facebook"></i> Facebook
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display:none" id="content-share">
+                  <div class="share-desc">' + sharedesc + '</div>
+                  <div class="share-title">' + sharetitle + '</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="more_info_block">
+            <ul class="nav nav-tabs tab-info page-product-heading">
+              <li class="active">
+                <a href="#idTab1" data-toggle="tab">Thông tin chi tiết</a>
+              </li>
+              <li>
+                <a href="#idTab2" data-toggle="tab">Điểm nổi bật</a>
+              </li>
+              <li>
+                <a href="#idTab3" data-toggle="tab">Nhận xét</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <section id="idTab1" class="tab-pane page-product-box active">
+                <div class="rte">
+                  <% if @food.detail %>
+                  <%= @food.detail.html_safe %>
+                  <% else %>
+                  <h4>Chưa có thông tin</h4>
+                  <% end %>
+                </div>
+              </section>
+              <section id="idTab2" class="tab-pane page-product-box">
+                <div class="rte">
+                  <% if @food.feature %>
+                      <%= @food.feature.html_safe %>
+                  <% else %>
+                      <h4>Chưa có thông tin</h4>
+                  <% end %>
+                </div>
+              </section>
+              <section id="idTab3" class="tab-pane page-product-box">
+
+                <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://developers.facebook.com/docs/plugins" data-width="100%" data-numposts="5" fb-xfbml-state="rendered">
+                  <span style="height: 687px;"><iframe id="f37a3c1fc90e72c" name="ff2299b0b49998" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://www.facebook.com/plugins/comments.php?api_key=483479355145437&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df8cc61935fce1%26domain%3Dleo-food.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fleo-food.bizwebvietnam.net%252Ff1b2d54083d72bc%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=100%25" style="border: none; overflow: hidden; height: 687px; width: 100%;"></iframe></span>
+                </div>
+
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <aside>
+        <div id="right_column" class="right_column sidebar col-sm-4 col-md-3 col-xs-12">
+          <%= render 'food/partials/right_menu' %>
+          <%= render 'food/partials/products_bestsell' %>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+  <div class="container" style="margin-top: 20px"><%= render 'food/partials/products_same_category' %></div>
+</section>
+
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=483479355145437";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    $(document).ready( function() {
+        $('.sp-wrap').smoothproducts();
+        $('#product_list_bestsell').owlCarousel({
+            items: 6,
+            lazyLoad: true,
+            navigation: true,
+            addClassActive: true,
+            afterInit: SetOwlCarouselFirstLast,
+            afterAction: SetOwlCarouselFirstLast,
+
+            itemsDesktop: [1199, 4],
+            itemsDesktopSmall: [979, 4],
+            itemsTablet: [768, 3],
+            itemsTabletSmall: [480, 2],
+            itemsMobile: [360, 1],
+
+            navigationText: ["‹", "›"],
+            autoPlay: true,
+            stopOnHover: true,
+        });
+
+        $('.btn.social-sharing').on('click', function () {
+            var sharedesc = $(".share-desc").text();
+            var sharetitle = $(".share-title").text();
+            type = $(this).attr('data-type');
+            if (type.length) {
+                switch (type) {
+                    case 'facebook':
+                        window.open('http://www.facebook.com/sharer/sharer.php?u=//leo-food.bizwebvietnam.net/hamburger', 'sharer', 'toolbar=0,status=0,width=660,height=445');
+                        break;
+                }
+            }
+        });
+
+        function SetOwlCarouselFirstLast(el) {
+            el.find(".owl-item").removeClass("first");
+            el.find(".owl-item.active").first().addClass("first");
+
+            el.find(".owl-item").removeClass("last");
+            el.find(".owl-item.active").last().addClass("last");
+        };
+    });
+</script>

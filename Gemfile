@@ -31,12 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Use Font-awesome Stylesheet
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Use Will Paginate
 gem 'will_paginate-bootstrap'
 
-# Slim progress bars for Ajax'y applications
+# Use Slim progress bars for Ajax'y applications
 gem 'nprogress-rails'
 
 group :development, :test do

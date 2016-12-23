@@ -6,93 +6,85 @@
     <div class="block_content">
       <div id="product_list_bestsell" class="product_list_owl owl-carousel">
         <% @today_foods.each do |today_food| %>
-                  <div class="product_block">
-                    <div class="item-variant clearfix product-block">
-                      <div class="product-meta">
-                        <h3 class="name">
-                          <a class="product-name" href="/"><%= today_food.name %></a>
-                        </h3>
+            <div class="product_block">
+              <div class="item-variant clearfix product-block">
+                <div class="product-meta">
+                  <h3 class="name">
+                    <a class="product-name" href="/<%= today_food.url ? today_food.url+'-p'+today_food.id.to_s : '' %>"><%= today_food.name %></a>
+                  </h3>
 
-                        <div class="review clearfix">
-                          <span class="shopify-product-reviews-badge" data-id="<%= today_food.id %>"></span>
-                        </div>
+                  <div class="review clearfix">
+                    <span class="shopify-product-reviews-badge" data-id="<%= today_food.id %>"></span>
+                  </div>
 
-                        <div class="content_price clearfix">
-                          <span class="price product-price sale-price"><%= today_food.promote_price ? number_to_currency(today_food.promote_price, :unit => '', :precision => 0) : number_to_currency(today_food.price, :unit => '', :precision => 0) %>₫</span>
-                          <span class="old-price product-price"><%= today_food.promote_price ? number_to_currency(today_food.price,:unit => '', :precision => 0)+'₫' : '' %></span>
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
-                      <div class="product-image-container image">
-                        <a class="product_img_link" href="/" title="Súp thập cẩm">
-                          <%= image_tag 'food/'+today_food.image_url_1, :class=>"replace-2x img-responsive" %>
-                        </a>
-                        <% if today_food.promote_price %>
+                  <div class="content_price clearfix">
+                    <span class="price product-price sale-price"><%= today_food.promote_price ? number_to_currency(today_food.promote_price, :unit => '', :precision => 0) : number_to_currency(today_food.price, :unit => '', :precision => 0) %>
+                      ₫</span>
+                    <span class="old-price product-price"><%= today_food.promote_price ? number_to_currency(today_food.price, :unit => '', :precision => 0)+'₫' : '' %></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="product-image-container image">
+                  <a class="product_img_link" href="/<%= today_food.url ? today_food.url+'-p'+today_food.id.to_s : '' %>" title="Súp thập cẩm">
+                    <%= image_tag 'food/'+today_food.image_url_1, :class => "replace-2x img-responsive" %>
+                  </a>
+                  <% if today_food.promote_price %>
                         <span class="product-label sale-box">
                           <span class="label-sale">-<%= sale_off(today_food.price, today_food.promote_price) %>%</span>
                         </span>
-                        <% end %>
-                        <div class="right">
-                          <div class="action">
-                            <div class="view_detail">
-                              <a class="btn btn-inverse lnk_view" href="/" data-toggle="tooltip" title="" data-original-title="Xem">
-                                <i class="fa fa-eye"></i>
-                              </a>
-                            </div>
-                            <div class="cart addtocart">
-                              <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart" id="product-actions-995767">
-                                <input type="hidden" name="id" value="<%= today_food.id %>">
-                                <input type="hidden" name="variantId" value="<%= today_food.id %>">
-                                <button class="btn btn-outline-inverse ajax_addtocart" type="submit" value="Submit" data-toggle="tooltip">
-                                  <i class="fa fa-shopping-cart"></i>
-                                  <span>Chọn</span>
-                                </button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
+                  <% end %>
+                  <div class="right">
+                    <div class="action">
+                      <div class="cart">
+                        <a href="/<%= today_food.url ? today_food.url+'-p'+today_food.id.to_s : '' %>">
+                          <button class="btn btn-outline-inverse choose" type="submit" value="Submit" data-toggle="tooltip">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Chọn</span>
+                          </button>
+                        </a>
                       </div>
-                      <hr/>
-                      <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
                     </div>
                   </div>
-            <% end %>
-        </div>
+                </div>
+                <hr/>
+                <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
+              </div>
+            </div>
+        <% end %>
       </div>
-
     </div>
+
+  </div>
   <script type="text/javascript">
-    $(document).ready(function() {
+      $(document).ready(function () {
 
-      $('#product_list_bestsell').owlCarousel({
-        items: 6,
-        lazyLoad: true,
-        navigation: true,
-        addClassActive: true,
-        afterInit: SetOwlCarouselFirstLast,
-        afterAction: SetOwlCarouselFirstLast,
+          $('#product_list_bestsell').owlCarousel({
+              items: 6,
+              lazyLoad: true,
+              navigation: true,
+              addClassActive: true,
+              afterInit: SetOwlCarouselFirstLast,
+              afterAction: SetOwlCarouselFirstLast,
 
-        itemsDesktop: [1199, 4],
-        itemsDesktopSmall: [979, 4],
-        itemsTablet: [768, 3],
-        itemsTabletSmall: [480, 2],
-        itemsMobile: [360, 1],
+              itemsDesktop: [1199, 4],
+              itemsDesktopSmall: [979, 4],
+              itemsTablet: [768, 3],
+              itemsTabletSmall: [480, 2],
+              itemsMobile: [360, 1],
 
-        navigationText: ["‹", "›"],
-          autoPlay : true,
-          stopOnHover : true,
+              navigationText: ["‹", "›"],
+              autoPlay: true,
+              stopOnHover: true,
+          });
+
+          function SetOwlCarouselFirstLast(el) {
+              el.find(".owl-item").removeClass("first");
+              el.find(".owl-item.active").first().addClass("first");
+
+              el.find(".owl-item").removeClass("last");
+              el.find(".owl-item.active").last().addClass("last");
+          };
+
       });
-
-      function SetOwlCarouselFirstLast(el) {
-        el.find(".owl-item").removeClass("first");
-        el.find(".owl-item.active").first().addClass("first");
-
-        el.find(".owl-item").removeClass("last");
-        el.find(".owl-item.active").last().addClass("last");
-      };
-
-    });
   </script>
-
-
 </div>

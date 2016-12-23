@@ -18,6 +18,7 @@
  *= require frontend/fonts_condensed
  *= require frontend/fonts_kelson
  *= require frontend/animate
+ *= require frontend/smoothproducts
  *= require frontend/owl.carousel
  *= require frontend/block-theme
  *= require frontend/menu
@@ -32,5 +33,5 @@
  *= require frontend/jgrowl
  *= require frontend/responsive
  *= require frontend/retina-responsive
-  *= require frontend/style
+ *= require frontend/style
  */

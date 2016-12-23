@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/loai-mon-an/:category_id', to: 'food#index'
   get '/tai-khoan', to: 'account#index'
   get '/tim-kiem', to: 'search#index'
+  get '/:food_url', to: 'food#show', food_url: /[a-zA-Z0-9-]+/
 end

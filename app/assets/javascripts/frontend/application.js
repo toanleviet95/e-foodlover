@@ -18,7 +18,7 @@
 //= require frontend/modernizr.min
 //= require frontend/retina
 //= require frontend/countdown
-//= require frontend/jquery.elevatezoom
+//= require frontend/smoothproducts.min
 //= require frontend/instafeed.min
 //= require frontend/jquery.cookie
 //= require frontend/jquery.scrollto-min

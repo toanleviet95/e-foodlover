@@ -219,7 +219,7 @@ select {
     background: #fff
 }
 .template-index .center_column {
-    padding-top: 20px
+    /*padding-top: 20px*/
 }
 .center_column .products_block {
     overflow: hidden
@@ -1655,7 +1655,7 @@ fieldset[disabled] .btn-inverse.active {
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 #categories_block .block_content .list-group li.active a {
-    color: #6bc15f
+    color: #f8694d
 }
 #categories_block .block_content .list-group li:last-child {
     border-bottom: 0px
@@ -1665,7 +1665,7 @@ fieldset[disabled] .btn-inverse.active {
     font-size: 13px;
 }
 #categories_block .block_content .list-group li a:hover {
-    color: #6bc15f
+    color: #f8694d
 }
 #categories_block .block_content .list-group li a:before {
     background: #B3B3B3;

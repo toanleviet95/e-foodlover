@@ -1,0 +1,35 @@
+<div id="categories_block" class="block">
+
+  <h4 class="title_block">Gian hàng ẩm thực</h4>
+
+  <div class="block_content" style="">
+    <ul class="list-block list-group list-unstyled">
+      <% @categories.each do |category| %>
+          <li>
+            <a href="/loai-mon-an/<%= category.id %>">
+              <span class="menu-icon has-icon">
+                <% if category.name == 'Cơm' %>
+                    <i class="fa fa-university"></i>
+                <% elsif category.name == 'Bún & Mỳ' %>
+                    <i class="fa fa-cutlery"></i>
+                <% elsif category.name == 'Lẩu' %>
+                    <i class="fa fa-ship"></i>
+                <% elsif category.name == 'Đồ ăn nhanh' %>
+                    <i class="fa fa-spoon"></i>
+                <% elsif category.name == 'Đồ nướng' %>
+                    <i class="fa fa-fire"></i>
+                <% elsif category.name == 'Hải sản' %>
+                    <i class="fa fa-tint"></i>
+                <% elsif category.name == 'Bánh kẹo' %>
+                    <i class="fa fa-birthday-cake"></i>
+                <% else %>
+                    <i class="fa fa-glass"></i>
+                <% end %>
+                <span class="menu-title"><%= category.name %></span>
+              </span>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
