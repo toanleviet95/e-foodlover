@@ -16,6 +16,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require frontend/modernizr.min
+//= require frontend/bootstrap.min
 //= require frontend/retina
 //= require frontend/countdown
 //= require frontend/smoothproducts.min

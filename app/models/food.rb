@@ -17,7 +17,7 @@ class Food < ApplicationRecord
     Food.joins(:category).where(:categories => {:parent_id => parent_id}).order(food_id: :desc).paginate(:page => page)
   end
   def get_foods_by_name(name, page)
-    Food.where('name LIKE ?' , "%#{name}%").order(id: :desc).paginate(:page => page)
+    Food.where('name LIKE ?' , "%#{name}%").order(food_id: :desc).paginate(:page => page)
   end
   def get_food_by_id(id)
     Food.find(id)

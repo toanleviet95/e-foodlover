@@ -97,6 +97,17 @@ hr{
 .border-product-search{
     border: 1px solid #e5e5e5;
 }
+.login-part{
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-right: 12px;
+    margin-top: 18px;
+    font-size: 12px;
+}
+.login-part:hover{
+    color: #f8694d;
+}
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 
