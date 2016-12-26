@@ -32,7 +32,7 @@
                                     <div class="item-variant clearfix product-block">
                                       <div class="product-meta">
                                         <h3 class="name">
-                                          <a class="product-name" href="/"><%= partial_category_promote.name %></a>
+                                          <a class="product-name" href="/<%= partial_category_promote.url ? partial_category_promote.url+'-p'+partial_category_promote.id.to_s : '' %>"><%= partial_category_promote.name %></a>
                                         </h3>
                                         <div class="review clearfix">
                                           <span class="shopify-product-reviews-badge" data-id="<%= partial_category_promote.id %>"></span>
@@ -45,7 +45,7 @@
                                         <div class="clearfix"></div>
                                       </div>
                                       <div class="product-image-container image">
-                                        <a class="product_img_link" href="/">
+                                        <a class="product_img_link" href="/<%= partial_category_promote.url ? partial_category_promote.url+'-p'+partial_category_promote.id.to_s : '' %>">
                                           <%= image_tag 'food/'+partial_category_promote.image_url_1, :class=>"replace-2x img-responsive" %>
                                         </a>
                                         <% if partial_category_promote.promote_price %>

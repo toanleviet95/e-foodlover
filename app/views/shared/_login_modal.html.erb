@@ -1,0 +1,82 @@
+<!-- Modal -->
+<div class="modal fade" id="loginModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">TÀI KHOẢN KHÁCH HÀNG</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 registered-users">
+            <div class="login-box">
+              <form accept-charset="UTF-8" action="/account/login" id="customer_login" method="post">
+                <input name="FormType" type="hidden" value="customer_login">
+                <input name="utf8" type="hidden" value="true">
+                <h1 class="page-subheading"><span>Đăng nhập</span></h1>
+                <div style="margin-bottom:15px" class="col-md-6">
+                  <ul class="form-list">
+                    <li>
+                      <label for="email">Email<span class="required">*</span></label>
+                      <br>
+                      <input type="email" class="form-control" value="" title="email" name="email" id="email" placeholder="Email">
+                    </li>
+                    <li>
+                      <label for="pass">Mật khẩu <span class="required">*</span></label>
+                      <br>
+
+                      <input type="password" value="" class="form-control" title="Mật khẩu" name="password" id="pass" placeholder="Mật khẩu">
+                    </li>
+                  </ul>
+                  <div style="margin-top: 10px" class="buttons-set">
+                    <button id="send2" type="submit" class="btn btn-outline"><span><i class="fa fa-lock"></i>&nbsp;Đăng nhập</span></button><br/>
+                    <a href="#recover" onclick="showRecoverPasswordForm();return false;" id="RecoverPassword">Quên mật khẩu?</a>
+                  </div>
+                </div>
+                <div style="margin-bottom: 10px" class="col-md-6">
+                  <p>Hoặc bạn có thể đăng nhập bằng</p>
+                  <div>
+                    <div style="margin-top:5px;"><button style="font-size: 15px" class="btn btn-block btn-primary"><i class="fa fa-facebook"></i>&nbsp;Facebook</button></div>
+                    <div style="margin-top:5px"><button style="font-size: 15px" class="btn btn-block btn-danger"><i class="fa fa-google-plus"></i>&nbsp;Google+</button></div>
+                    <div style="margin-top:5px"><button style="font-size: 15px" class="btn btn-block btn-info"><i class="fa fa-twitter"></i>&nbsp;Twitter</button></div>
+                  </div>
+                </div>
+              </form>
+              <div id="recover_password" style="display: none;">
+                <h1 class="page-subheading"><span>Đặt lại mật khẩu</span></h1>
+                <p>Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.</p>
+                <form accept-charset="UTF-8" action="/account/recover" id="recover_customer_password" method="post">
+                  <input name="FormType" type="hidden" value="recover_customer_password">
+                  <input name="utf8" type="hidden" value="true">
+
+
+                  <ul class="form-list">
+                    <li>
+                      <label for="email">Email<span class="required">*</span></label>
+                      <br>
+                      <input type="email" class="form-control" value="" title="email" name="email" id="recover-email" placeholder="Email">
+                    </li>
+                  </ul>
+                  <div class="buttons-set">
+                    <input type="submit" class="btn btn-outline" value="Gửi">
+                    <a href="#" onclick="hideRecoverPasswordForm();return false;">Trở về</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 new-users">
+
+            <div class="register-box">
+              <h1 class="page-subheading"><span>Đăng ký</span></h1>
+              <p>Bạn chưa có tài khoản ? Hãy đăng ký ngay hôm nay để nhận thêm nhiều ưu đãi</p>
+              <div class="buttons-set">
+                <button class="btn btn-block" onclick="window.location.href='/account/register'"><span><i class="fa fa-user"></i>&nbsp;Tạo tài khoản</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

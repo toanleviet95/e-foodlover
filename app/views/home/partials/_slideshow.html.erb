@@ -16,6 +16,7 @@
           <div class="navbar">
             <div class="navbar-ex1-collapse">
               <ul class="nav navbar-nav nav-verticalmenu">
+                <% index = 0 %>
                 <% @categories.each do |category| %>
                     <li class="parent dropdown">
                       <a class="dropdown-toggle has-category" data-toggle="dropdown" href="/loai-mon-an/<%= category.id %>">
@@ -39,125 +40,88 @@
                             <% end %>
                             <span class="menu-title"><%= category.name %></span>
                           </span>
-                          <b class="caret"></b>
+                        <b class="caret"></b>
                       </a>
                       <div class="dropdown-sub dropdown-menu sub-apmegamenu-1" style="width:700px">
-                      <div class="dropdown-menu-inner">
-                      <div class="row">
-
-
-                      <div class="mega-col col-sm-9">
-
-
-                      <div class="products_menu">
-
-                      <div class="menu-title">
-                      Món ngon trong ngày
-                      </div>
-
-                      <div class="product-block">
-
-
-                      <div class="product-container clearfix">
-                      <div class="product-meta">
-                      <h5 class="name">
-                      <a class="product-name"
-                      href="/com-van-phong"
-                      title="Cơm văn phòng">
-                      Cơm văn phòng
-                      </a>
-                      </h5>
-                      <div class="product-desc">
-                      <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;">
-                      <br> Món ăn đơn giản với chiếc bánh...
-                      </p>
-                      </div>
-                      <div class="content_price">
-
-                      <span class="price product-price">
-                      35.000₫
-                      </span>
-                      </div>
-                      </div>
-                      <div class="image ">
-                      <a class="product_img_link" href="/com-van-phong" title="Cơm văn phòng">
-                      <%= image_tag "products/552048541-fix.jpg", :class=>"replace-2x img-responsive" %>
-                      </a>
-                      </div>
-
-                      </div>
-
-
-                      <div class="product-container clearfix">
-                      <div class="product-meta">
-                      <h5 class="name">
-                      <a class="product-name"
-                      href="/com-ga"
-                      title="Cơm gà">
-                      Cơm gà
-                      </a>
-                      </h5>
-                      <div class="product-desc">
-                      <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;">
-                      <br> Trong ẩm thực Việt, có lẽ chẳng...
-                      </p>
-                      </div>
-                      <div class="content_price">
-
-                      <span class="price product-price">
-                      40.000₫
-                      </span>
-                      </div>
-                      </div>
-                      <div class="image ">
-                      <a class="product_img_link" href="/com-ga" title="Cơm gà">
-                      <%= image_tag "products/4556114201404-fix.jpg", :class=>"replace-2x img-responsive" %>
-                      </a>
-                      </div>
-
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                        <div class="mega-col col-sm-3 chef-image">
-                          <% if category.name == 'Cơm' %>
-                              <div class="chef_1">
-                                <%= image_tag "chefs/chef_1.png"%>
+                        <div class="dropdown-menu-inner">
+                          <div class="row">
+                            <div class="mega-col col-sm-9">
+                              <div class="products_menu">
+                                <div class="menu-title">
+                                  Món ngon trong ngày
+                                </div>
+                                <div class="product-block">
+                                  <% if @partial_best_sell_foods[index].length > 0 %>
+                                      <% @partial_best_sell_foods[index].each do |partial_best_sell_food| %>
+                                        <div class="product-container clearfix">
+                                    <div class="product-meta">
+                                      <h5 class="name">
+                                        <a class="product-name"
+                                           href="/<%= partial_best_sell_food.url ? partial_best_sell_food.url+'-p'+partial_best_sell_food.id.to_s : '' %>"
+                                           title="<%= partial_best_sell_food.name %>">
+                                          <%= partial_best_sell_food.name.length > 21?partial_best_sell_food.name[0..21]+'...':partial_best_sell_food.name %>
+                                        </a>
+                                      </h5>
+                                      <div class="content_price">
+                                        <span class="price product-price">
+                                          <%= partial_best_sell_food.promote_price ? number_to_currency(partial_best_sell_food.promote_price, :unit => '', :precision => 0) : number_to_currency(partial_best_sell_food.price, :unit => '', :precision => 0) %>₫
+                                        </span>
+                                        <span class="old-price product-price">
+                                          <%= partial_best_sell_food.promote_price ? number_to_currency(partial_best_sell_food.price,:unit => '', :precision => 0)+'₫' : '' %>
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div class="image ">
+                                      <a class="product_img_link" href="/<%= partial_best_sell_food.url ? partial_best_sell_food.url+'-p'+partial_best_sell_food.id.to_s : '' %>" title="<%= partial_best_sell_food.name %>">
+                                        <%= image_tag "food/"+partial_best_sell_food.image_url_1, :class=>"replace-2x img-responsive" %>
+                                      </a>
+                                    </div>
+                                  </div>
+                                      <% end %>
+                                  <% end %>
+                                </div>
                               </div>
-                          <% elsif category.name == 'Bún & Mỳ' %>
-                              <div class="chef_2">
-                                <%= image_tag "chefs/chef_2.png"%>
-                              </div>
-                          <% elsif category.name == 'Lẩu' %>
-                              <div class="chef_3">
-                                <%= image_tag "chefs/chef_3.png"%>
-                              </div>
-                          <% elsif category.name == 'Đồ ăn nhanh' %>
-                              <div class="chef_4">
-                                <%= image_tag "chefs/chef_4.png"%>
-                              </div>
-                          <% elsif category.name == 'Đồ nướng' %>
-                              <div class="chef_5">
-                                <%= image_tag "chefs/chef_5.png"%>
-                              </div>
-                          <% elsif category.name == 'Hải sản' %>
-                              <div class="chef_6">
-                                <%= image_tag "chefs/chef_6.png"%>
-                              </div>
-                          <% elsif category.name == 'Bánh kẹo' %>
-                              <div class="chef_7">
-                                <%= image_tag "chefs/chef_7.png"%>
-                              </div>
-                          <% else %>
-                              <div class="chef_8">
-                                <%= image_tag "chefs/chef_8.png"%>
-                              </div>
-                          <% end %>
+                            </div>
+                            <div class="mega-col col-sm-3 chef-image">
+                              <% if category.name == 'Cơm' %>
+                                  <div class="chef_1">
+                                    <%= image_tag "chefs/chef_1.png" %>
+                                  </div>
+                              <% elsif category.name == 'Bún & Mỳ' %>
+                                  <div class="chef_2">
+                                    <%= image_tag "chefs/chef_2.png" %>
+                                  </div>
+                              <% elsif category.name == 'Lẩu' %>
+                                  <div class="chef_3">
+                                    <%= image_tag "chefs/chef_3.png" %>
+                                  </div>
+                              <% elsif category.name == 'Đồ ăn nhanh' %>
+                                  <div class="chef_4">
+                                    <%= image_tag "chefs/chef_4.png" %>
+                                  </div>
+                              <% elsif category.name == 'Đồ nướng' %>
+                                  <div class="chef_5">
+                                    <%= image_tag "chefs/chef_5.png" %>
+                                  </div>
+                              <% elsif category.name == 'Hải sản' %>
+                                  <div class="chef_6">
+                                    <%= image_tag "chefs/chef_6.png" %>
+                                  </div>
+                              <% elsif category.name == 'Bánh kẹo' %>
+                                  <div class="chef_7">
+                                    <%= image_tag "chefs/chef_7.png" %>
+                                  </div>
+                              <% else %>
+                                  <div class="chef_8">
+                                    <%= image_tag "chefs/chef_8.png" %>
+                                  </div>
+                              <% end %>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      </div>
-                      </div>
                     </li>
+                    <% index = index + 1 %>
                 <% end %>
               </ul>
             </div>
@@ -166,11 +130,11 @@
       </div>
     </div>
     <script type="text/javascript">
-      $(".verticalmenu .caret").click(function() {
-        var $parent = $(this).parent();
-        $parent.toggleClass('open');
-        return false;
-      });
+        $(".verticalmenu .caret").click(function () {
+            var $parent = $(this).parent();
+            $parent.toggleClass('open');
+            return false;
+        });
     </script>
 
   </div>
@@ -180,29 +144,29 @@
       <div class="leo-viewport" style="overflow: hidden; position: relative;">
         <ul id="sliderlayer" class="slides clearfix" style="width: 800%; transition-duration: 0s; transform: translate3d(-1152px, 0px, 0px);">
           <% @sliders.each do |slider| %>
-          <li aria-hidden="true" style="float: left; display: block; width: 576px;">
-            <a href="" class="slide-link">
-              <%= image_tag 'sliders/'+slider.image_url, :class=>'img-responsive' %>
-            </a>
-            <div class="slide-caption caption_3">
-              <div class="container">
-                <%= slider.content.html_safe %>
-              </div>
-            </div>
-          </li>
+              <li aria-hidden="true" style="float: left; display: block; width: 576px;">
+                <a href="" class="slide-link">
+                  <%= image_tag 'sliders/'+slider.image_url, :class => 'img-responsive' %>
+                </a>
+                <div class="slide-caption caption_3">
+                  <div class="container">
+                    <%= slider.content.html_safe %>
+                  </div>
+                </div>
+              </li>
           <% end %>
         </ul>
       </div>
     </div>
     <script>
-      $(document).ready(function() {
-        $('.slider-container').flexslider({
-          namespace: "leo-",
-          animation: "slide",
-          smoothHeight: false,
-            controlNav: false
+        $(document).ready(function () {
+            $('.slider-container').flexslider({
+                namespace: "leo-",
+                animation: "slide",
+                smoothHeight: false,
+                controlNav: false
+            });
         });
-      });
     </script>
   </div>
   <div class="col-lg-3 hidden-md hidden-xs hidden-sm">
@@ -211,7 +175,7 @@
         <div class="image-box">
           <div class="img-banner effect">
             <a href="collections/all">
-              <%= image_tag "banners/banner-right-home.png", :class=>"img-responsive" %>
+              <%= image_tag "banners/banner-right-home.png", :class => "img-responsive" %>
             </a>
           </div>
         </div>

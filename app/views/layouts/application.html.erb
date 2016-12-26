@@ -3,7 +3,7 @@
   <head>
     <title>FOOD LOVER</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="leo-food">
+    <meta property="og:title" content="E-FOOD LOVER">
 
     <meta property="og:image" content="images/themes/49902/assets/logo.png?1478506655659">
     <meta property="og:image:secure_url" content="images/themes/49902/assets/logo.png?1478506655659">
@@ -29,60 +29,37 @@
       <%= yield %>
       </main>
       <%= render "shared/footer" %>
-      <script type="text/javascript">
-        ! function($) {
-          $(function() {
-            $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
-              e.stopPropagation();
-            });
-            $(document.body).on('click', '[data-toggle="dropdown"]', function() {
-              if (!$(this).parent().hasClass('open') && this.href && this.href != '#') {
-                window.location.href = this.href;
-              }
-            });
-          })
-        }(window.jQuery);
-          $('#btn_tim_kiem').click(function(){
-             var key = $('#tu_khoa').val();
-             if(!key.trim()){
-                 $('#tu_khoa').val('');
-                 return false;
-             }
-          });
-        backtotop();
-        $('.login-part').click(function(){
-            console.log('aaaa');
-           $('#loginModal').modal();
-        });
-      </script>
-
     </section>
-
-    <div id="back-top" class="return-top hidden-xs display" style="display: block;">
-      <i class="fa fa-angle-up"></i>
-      <span class="return-icon">Top</span>
-    </div>
-    <!-- Modal -->
-    <div id="loginModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the modal.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <%= render "shared/back_to_top" %>
+    <%= render "shared/login_modal" %>
   </div>
   <%= render "shared/mobile_menu" %>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          ! function($) {
+              $(function() {
+                  $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
+                      e.stopPropagation();
+                  });
+                  $(document.body).on('click', '[data-toggle="dropdown"]', function() {
+                      if (!$(this).parent().hasClass('open') && this.href && this.href != '#') {
+                          window.location.href = this.href;
+                      }
+                  });
+              })
+          }(window.jQuery);
+          $('#btn_tim_kiem').click(function(){
+              var key = $('#tu_khoa').val();
+              if(!key.trim()){
+                  $('#tu_khoa').val('');
+                  return false;
+              }
+          });
+          backtotop();
+          $('.close').click(function(){
+              $('#loginModal').modal('hide');
+          });
+      });
+  </script>
   </body>
 </html>

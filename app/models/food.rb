@@ -10,6 +10,9 @@ class Food < ApplicationRecord
   def get_today_foods
     Food.last(12)
   end
+  def get_partial_today_foods(parent_id)
+    Food.joins(:category).where(:categories => {:parent_id => parent_id}).last(2)
+  end
   def get_foods_by_category(category_id, page)
     Food.where(category_id: category_id).order(food_id: :desc).paginate(:page => page)
   end
