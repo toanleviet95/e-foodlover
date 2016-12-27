@@ -202,7 +202,20 @@
                       </li>
                     </ul>
                     <div>
-                      <span style="cursor: pointer" class="login-part" data-toggle="modal" data-target="#loginModal" data-backdrop="false"><i class="fa fa-power-off"></i>&nbsp;ĐĂNG NHẬP</span>
+                      <% if current_user %>
+                          <span style="cursor: pointer" class="login-part">
+                            <% if current_user.image_url %>
+                              <img src="<%= current_user.image_url %>" style="width: 25px; height: 25px;"/>
+                            <% else %>
+                              <%= image_tag 'themes_support/user.png', :style=>"width:25px; height:25px" %>
+                            <% end %>
+                            &nbsp;<%= current_user.name %>
+                            &nbsp;&nbsp;<a href="/tai-khoan/dang-xuat"><span class="label label-danger">Đăng xuất</span></a>
+                          </span>
+                      <% else %>
+                          <span style="cursor: pointer" class="login-part" data-toggle="modal" data-target="#loginModal" data-backdrop="false"><i class="fa fa-power-off"></i>&nbsp;ĐĂNG NHẬP</span>
+                      <% end %>
+
                     </div>
                   </div>
                 </div>

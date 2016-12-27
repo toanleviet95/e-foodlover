@@ -39,6 +39,15 @@ gem 'will_paginate-bootstrap'
 # Use Slim progress bars for Ajax'y applications
 gem 'nprogress-rails'
 
+# Use Figaro to manage environment variables
+gem 'figaro'
+
+# Use omniauth-facebook for Facebook Authentication
+gem 'omniauth-facebook'
+
+# Use omniauth-google-oauth2 for Google Authentication
+gem 'omniauth-google-oauth2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

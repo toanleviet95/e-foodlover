@@ -16,13 +16,17 @@ ActiveRecord::Schema.define(version: 0) do
   enable_extension "plpgsql"
 
   create_table "accounts", primary_key: "account_id", id: :integer, default: -> { "nextval('account_id_seq'::regclass)" }, force: :cascade, comment: "Tài khoản người dùng" do |t|
-    t.string   "username",     limit: 100,                          null: false
-    t.string   "password",     limit: 100,                          null: false
+    t.string   "email",        limit: 255,                          null: false
+    t.string   "password"
     t.integer  "role_id",                                           null: false
     t.datetime "created_date",             default: -> { "now()" }, null: false
     t.datetime "updated_date",             default: -> { "now()" }
     t.boolean  "status",                   default: true,           null: false, comment: "true: active\nfalse: block"
-    t.index ["username"], name: "accounts_unq", unique: true, using: :btree
+    t.string   "provider",                                          null: false
+    t.string   "uid",          limit: 255
+    t.string   "token",        limit: 255
+    t.string   "name",         limit: 255
+    t.string   "image_url",    limit: 255
   end
 
   create_table "categories", primary_key: "category_id", id: :integer, default: -> { "nextval('category_id_seq'::regclass)" }, force: :cascade, comment: "Phân loại món ăn" do |t|
@@ -32,7 +36,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["name"], name: "category_unq", unique: true, using: :btree
   end
 
-  create_table "foods", primary_key: "food_id", id: :integer, default: -> { "nextval('food_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "foods", primary_key: "food_id", id: :integer, default: -> { "nextval('food_id_seq'::regclass)" }, force: :cascade, comment: "Món ăn" do |t|
     t.string   "name",          limit: 250,                          null: false
     t.decimal  "price",                                              null: false
     t.text     "summary"
@@ -48,6 +52,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "image_url_3",   limit: 250
     t.boolean  "status",                                             null: false
     t.integer  "user_id",                                            null: false
+    t.string   "url",           limit: 250
   end
 
   create_table "invoices", primary_key: "invoice_id", id: :integer, default: -> { "nextval('invoice_id_seq'::regclass)" }, force: :cascade, comment: "Hóa đơn thanh toán" do |t|
@@ -70,7 +75,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["name"], name: "roles_unq", unique: true, using: :btree
   end
 
-  create_table "sliders", primary_key: "slider_id", id: :integer, default: -> { "nextval('slider_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "sliders", primary_key: "slider_id", id: :integer, default: -> { "nextval('slider_id_seq'::regclass)" }, force: :cascade, comment: "Slider trang chủ" do |t|
     t.string   "image_url",    limit: 255,                          null: false
     t.text     "content"
     t.integer  "order"
@@ -92,17 +97,15 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "users", primary_key: "user_id", id: :integer, default: -> { "nextval('user_id_seq'::regclass)" }, force: :cascade, comment: "Thông tin chi tiết của người dùng" do |t|
-    t.integer  "account_id",                                         null: false
-    t.string   "first_name",    limit: 100
-    t.string   "last_name",     limit: 100
+    t.string   "fullname",                                           null: false
     t.boolean  "gender"
     t.date     "date_of_birth"
-    t.string   "address",       limit: 250
+    t.string   "address",       limit: 255
     t.string   "city",          limit: 100
     t.string   "phone_number",  limit: 20
-    t.string   "email",         limit: 250
     t.datetime "updated_date",              default: -> { "now()" }
-    t.index ["email", "phone_number"], name: "users_unq", unique: true, using: :btree
+    t.string   "email",         limit: 255,                          null: false
+    t.index ["email"], name: "users_unq", unique: true, using: :btree
   end
 
   add_foreign_key "accounts", "roles", primary_key: "role_id", name: "accounts_roles_fkey"
@@ -111,5 +114,4 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "invoices", "foods", primary_key: "food_id", name: "invoices_food_fkey"
   add_foreign_key "invoices", "transactions", primary_key: "transaction_id", name: "invoices_transactions_fkey"
   add_foreign_key "transactions", "payments", primary_key: "payment_id", name: "transactions_payment_fkey"
-  add_foreign_key "users", "accounts", primary_key: "account_id", name: "users_accounts_fkey"
 end
