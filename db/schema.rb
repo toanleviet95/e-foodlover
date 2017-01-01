@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "password"
     t.integer  "role_id",                                           null: false
     t.datetime "created_date",             default: -> { "now()" }, null: false
-    t.datetime "updated_date",             default: -> { "now()" }
+    t.datetime "updated_date",             default: -> { "now()" }, null: false
     t.boolean  "status",                   default: true,           null: false, comment: "true: active\nfalse: block"
     t.string   "provider",                                          null: false
     t.string   "uid",          limit: 255
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_foreign_key "accounts", "roles", primary_key: "role_id", name: "accounts_roles_fkey"
+  add_foreign_key "accounts", "users", column: "email", primary_key: "email", name: "accounts_users_fkey"
   add_foreign_key "foods", "categories", primary_key: "category_id", name: "food_categories_fkey"
   add_foreign_key "foods", "users", primary_key: "user_id", name: "food_users_fkey"
   add_foreign_key "invoices", "foods", primary_key: "food_id", name: "invoices_food_fkey"

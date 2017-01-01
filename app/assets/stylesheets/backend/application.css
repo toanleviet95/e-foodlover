@@ -9,30 +9,18 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *= require bootstrap
+
  *= require font-awesome
  *= require nprogress
  *= require nprogress-bootstrap
  *= require nprogress-turbolinks5
- *= require frontend/fonts_roboto
- *= require frontend/fonts_hind
- *= require frontend/fonts_condensed
- *= require frontend/fonts_kelson
- *= require frontend/animate
- *= require frontend/smoothproducts
- *= require frontend/owl.carousel
- *= require frontend/block-theme
- *= require frontend/menu
- *= require frontend/product
- *= require frontend/contact-form
- *= require frontend/blog
- *= require frontend/wishlist
- *= require frontend/collections
- *= require frontend/global
- *= require frontend/site_temp
- *= require frontend/skins
- *= require frontend/jgrowl
- *= require frontend/responsive
- *= require frontend/retina-responsive
- *= require frontend/style
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/extras/dataTables.responsive
+ *= require bootstrap
+ *= require backend/core
+ *= require backend/components
+ *= require backend/icons
+ *= require backend/pages
+ *= require backend/menu
+ *= require backend/responsive
  */

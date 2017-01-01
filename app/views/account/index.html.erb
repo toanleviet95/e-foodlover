@@ -5,83 +5,321 @@
         <h1><i class="fa fa-user"></i>&nbsp;Tài khoản đăng bán</h1>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 registered-users">
-          <div class="login-box">
-            <form accept-charset="UTF-8" action="/account/login" id="customer_login" method="post">
-              <input name="FormType" type="hidden" value="customer_login">
-              <input name="utf8" type="hidden" value="true">
-              <h1 class="page-subheading"><span>Đăng nhập</span></h1>
+        <div id="login-form-seller">
+          <div class="col-xs-12 col-sm-6 col-md-6 registered-users">
+            <div class="login-box">
+              <h1 class="page-subheading">Đăng nhập</h1>
+              <div id="error_display_login_seller" style="display: none; margin-top: 10px;" class="alert alert-danger">
+                <a id="close_alert_error_login_seller" class="close" aria-label="close">&times;</a>
+                <span id="error_login_seller"></span>
+              </div>
               <div style="margin-bottom:15px" class="col-md-12">
-                <p>Đăng nhập tài khoản đăng bán</p>
-
                 <ul class="form-list">
                   <li>
-                    <label for="email">Email<span class="required">*</span></label>
+                    <label for="email_seller_login">Email <span class="required">*</span></label>
                     <br>
-                    <input type="email" class="form-control" value="" title="email" name="email" id="email" placeholder="Email">
+                    <input type="email" class="form-control" value="" name="email_seller_login" id="email_seller_login" placeholder="Nhập email">
                   </li>
                   <li>
-                    <label for="pass">Mật khẩu <span class="required">*</span></label>
+                    <label for="password_seller_login">Mật khẩu <span class="required">*</span></label>
                     <br>
-
-                    <input type="password" value="" class="form-control" title="Mật khẩu" name="password" id="pass" placeholder="Mật khẩu">
+                    <input type="password" value="" class="form-control" name="password_seller_login" id="password_seller_login" placeholder="Nhập mật khẩu">
                   </li>
                 </ul>
-                <div class="buttons-set">
-                  <button id="send2" type="submit" class="btn btn-outline"><span><i class="fa fa-lock"></i>&nbsp;Đăng nhập</span></button>
-                  <a href="#recover" onclick="showRecoverPasswordForm();return false;" id="RecoverPassword">Quên mật khẩu?</a>
+                <div style="margin-top: 10px" class="buttons-set">
+                  <button id="btn_seller_login" type="button" class="btn btn-block btn-default">
+                    <span><i class="fa fa-lock"></i>&nbsp;Đăng nhập</span>
+                  </button>
+                  <!--<a href="#recover_client" onclick="showRecoverPasswordFormClient();return false;" id="RecoverPassword">Quên-->
+                  <!--mật khẩu?</a>-->
                 </div>
               </div>
-            </form>
-            <div id="recover_password" style="display: none;">
-              <h1 class="page-subheading"><span>Đặt lại mật khẩu</span></h1>
-              <p>Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.</p>
-              <form accept-charset="UTF-8" action="/account/recover" id="recover_customer_password" method="post">
-                <input name="FormType" type="hidden" value="recover_customer_password">
-                <input name="utf8" type="hidden" value="true">
+              <!--<div id="recover_password_client" style="display: none;">-->
+                <!--<h1 class="page-subheading">Đặt lại mật khẩu</h1>-->
+                <!--<p>Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.</p>-->
+                <!--<form accept-charset="UTF-8" action="/account/recover" id="recover_customer_password" method="post">-->
+                  <!--<input name="FormType" type="hidden" value="recover_customer_password">-->
+                  <!--<input name="utf8" type="hidden" value="true">-->
+                  <!--<ul class="form-list">-->
+                    <!--<li>-->
+                      <!--<label for="email_client_forgot">Email<span class="required">*</span></label>-->
+                      <!--<br>-->
+                      <!--<input type="email" class="form-control" value="" name="email_client_forgot" id="email_client_forgot" placeholder="Nhập email">-->
+                    <!--</li>-->
+                  <!--</ul>-->
+                  <!--<div class="buttons-set" style="margin-top: 10px; margin-bottom: 10px;">-->
+                    <!--<input type="submit" class="btn btn-outline btn-default" value="Gửi">-->
+                    <!--<a onclick="hideRecoverPasswordFormClient();return false;">Trở về</a>-->
+                  <!--</div>-->
+                <!--</form>-->
+              <!--</div>-->
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 new-users">
 
-
-                <ul class="form-list">
-                  <li>
-                    <label for="email">Email<span class="required">*</span></label>
-                    <br>
-                    <input type="email" class="form-control" value="" title="email" name="email" id="recover-email" placeholder="Email">
-                  </li>
-                </ul>
-                <div class="buttons-set">
-                  <input type="submit" class="btn btn-outline" value="Gửi">
-                  <a href="#" onclick="hideRecoverPasswordForm();return false;">Trở về</a>
-                </div>
-              </form>
+            <div class="register-box">
+              <h1 class="page-subheading">Đăng ký</h1>
+              <p>Bạn muốn làm đầu bếp tại gia ? Hãy đăng ký ngay hôm nay để chia sẻ món ăn của bạn với cộng đồng E-FOODLOVER <i class="fa fa-smile-o"></i></p>
+              <div class="buttons-set">
+                <button class="btn btn-default btn-block" onclick="goRegisterFormSeller();return false;">
+                  <span><i class="fa fa-user"></i>&nbsp;Tạo tài khoản đăng bán</span></button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 new-users">
-
-          <div class="register-box">
-            <h1 class="page-subheading"><span>Đăng ký</span></h1>
-            <p>Bạn muốn là đầu bếp tại gia ? Bạn cần chia sẻ và đăng bán món ăn của mình cho cộng đồng ẩm thực của chúng tôi ? Hãy đăng kí tài khoản ngay hôm nay</p>
-            <div class="buttons-set">
-              <button class="btn btn-block" onclick="window.location.href='/account/register'"><span><i class="fa fa-user"></i>&nbsp;Tạo tài khoản đăng bán</span></button>
+        <div id="register-form-seller">
+          <div>
+            <h1 class="page-subheading">Đăng ký tài khoản đăng bán</h1>
+            <div id="error_display_seller" style="display: none; margin-top: 10px;" class="alert alert-danger">
+              <a id="close_alert_error_seller" class="close" aria-label="close">&times;</a>
+              <span id="error_register_seller"></span>
             </div>
+            <div id="success_display_seller" style="display: none; margin-top: 10px;" class="alert alert-success">
+              <a id="close_alert_success_seller" class="close" aria-label="close">&times;</a>
+              <span id="success_register_seller"></span>
+            </div>
+            <div class="col-md-6">
+              <ul class="form-list">
+                <li>
+                  <label for="email_seller_register">Email <span class="required">*</span></label>
+                  <br>
+                  <input type="email" class="form-control" value="" name="email_seller_register" id="email_seller_register" placeholder="Nhập email">
+                </li>
+                <li>
+                  <label for="password_seller_register">Mật khẩu <span class="required">*</span></label>
+                  <br>
+                  <input type="password" value="" class="form-control" name="password_seller_register" id="password_seller_register" placeholder="Mật khẩu ít nhất 6 kí tự">
+                </li>
+                <li>
+                  <label for="fullname_seller_register">Họ tên <span class="required">*</span></label>
+                  <br>
+                  <input type="text" class="form-control" value="" name="fullname_seller_register" id="fullname_seller_register" placeholder="Nhập họ tên">
+                </li>
+                <li>
+                  <label>Giới tính <span class="required">*</span></label>
+                  <br>
+                  <input type="radio" value="male" name="gender_seller_register">&nbsp;Nam&nbsp;&nbsp;
+                  <input type="radio" value="female" name="gender_seller_register">&nbsp;Nữ
+                </li>
+                <li><span class="required">* Bắt buộc điền thông tin</span></li>
+              </ul>
+
+            </div>
+            <div class="col-md-6">
+              <ul class="form-list">
+                <li>
+                  <label>Ngày sinh <span class="required">*</span></label>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <select class="form-control" name="day_seller_register">
+                        <option value="None">Ngày</option>
+                        <% for i in 1..31 %>
+                            <option value="<%= i %>"><%= i %></option>
+                        <%  end %>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select class="form-control" name="month_seller_register">
+                        <option value="None">Tháng</option>
+                        <% for i in 1..12 %>
+                            <option value="<%= i %>"><%= i %></option>
+                        <%  end %>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select class="form-control" name="year_seller_register">
+                        <option value="None">Năm</option>
+                        <% year = Date.today.year %>
+                        <% year.downto(1900) do |i| %>
+                            <option value="<%= i %>"><%= i %></option>
+                        <%  end %>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <label for="address_seller_register">Địa chỉ</label>
+                  <br>
+                  <input type="text" value="" class="form-control" name="address_seller_register" id="address_seller_register" placeholder="Nhập địa chỉ">
+                </li>
+                <li>
+                  <label>Thành phố</label>
+                  <br>
+                  <select name="city_seller_register" class="form-control">
+                    <option value="None">Chọn thành phố</option>
+                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Hải Phòng">Hải Phòng</option>
+                    <option value="Cần Thơ">Cần Thơ</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Biên Hòa">Biên Hòa</option>
+                    <option value="Nha Trang">Nha Trang</option>
+                    <option value="Huế">Huế</option>
+                    <option value="Buôn Ma Thuột">Buôn Ma Thuột</option>
+                    <option value="Vinh">Vinh</option>
+                    <option value="Vũng Tàu">Vũng Tàu</option>
+                    <option value="Quy Nhơn">Quy Nhơn</option>
+                    <option value="Long Xuyên">Long Xuyên</option>
+                    <option value="Thái Nguyên">Thái Nguyên</option>
+                    <option value="Nam Định">Nam Định</option>
+                    <option value="Rạch Giá">Rạch Giá</option>
+                    <option value="Thủ Dầu Một">Thủ Dầu Một</option>
+                    <option value="Hạ Long">Hạ Long</option>
+                    <option value="Phan Thiết">Phan Thiết</option>
+                    <option value="Thanh Hóa">Thanh Hóa</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="phone_seller_register">Điện thoại</label>
+                  <br>
+                  <input type="text" value="" class="form-control" name="phone_seller_register" id="phone_seller_register" placeholder="Nhập số điện thoại">
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top: 10px; float: right; margin-right: 8px;">
+            <button id="btn_seller_register" class="btn btn-default">ĐĂNG KÝ</button>
+            <button class="btn" onclick="goLoginFormSeller();return false;">TRỞ VỀ</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<script>
-    function showRecoverPasswordForm() {
-        document.getElementById('recover_password').style.display = 'block';
-        document.getElementById('customer_login').style.display='none';
-    }
+<script type="text/javascript">
+    $('#btn_seller_register').click(function () {
+        $('#login-page').animate({ scrollTop: 0 }, 'fast');
+        var email = $('input[name=email_seller_register]').val();
+        var password = $('input[name=password_seller_register]').val();
+        var fullname = $('input[name=fullname_seller_register]').val();
+        var gender = $('input[name=gender_seller_register]:checked').val();
+        var day = $('[name=day_seller_register]').val();
+        var month = $('[name=month_seller_register]').val();
+        var year = $('[name=year_seller_register]').val();
+        if(!email || !password || !fullname || !gender || !day ||  !month || !year || day == 'None' || month == 'None' || year == 'None'){
+            $('#error_register_seller').html('Vui lòng điền đầy đủ thông tin <strong>bắt buộc</strong>');
+            $('#error_display_seller').show();
+            $('#success_display_seller').hide();
+        }else if(!checkEmail(email)){
+            $('#error_register_seller').html('<strong>Email</strong> không hợp lệ');
+            $('#error_display_seller').show();
+            $('#success_display_seller').hide();
+        }else if(password.length < 6){
+            $('#error_register_seller').html('<strong>Mật khẩu</strong> phải từ 6 kí tự trở lên');
+            $('#error_display_seller').show();
+            $('#success_display_seller').hide();
+        }else if(!checkDate(day,month,year)){
+            $('#error_register_seller').html('<strong>Ngày sinh</strong> không hợp lệ');
+            $('#error_display_seller').show();
+            $('#success_display_seller').hide();
+        }else{
+            if(gender == 'male'){
+                gender = true;
+            }else{
+                gender = false;
+            }
+            var date_of_birth = year+'-'+month+'-'+day;
+            var seller_user = {
+                email: email, password: password, role_id: 2, fullname: fullname, gender: gender, date_of_birth: date_of_birth, address: null, city: null, phone: null
+            };
 
-    function hideRecoverPasswordForm() {
-        document.getElementById('recover_password').style.display = 'none';
-        document.getElementById('customer_login').style.display = 'block';
-    }
-    // Allow deep linking to the recover password form
-    if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+            var address = $('input[name=address_seller_register]').val();
+            var city = $('[name=city_seller_register]').val();
+            var phone = $('input[name=phone_seller_register]').val();
 
+            if(address){
+                seller_user.address = address;
+            }
+            if(city && city != 'None'){
+                seller_user.city = city;
+            }
+            if(phone){
+                if(checkPhone(phone)){
+                    seller_user.phone = phone;
+                }else{
+                    $('#error_register_seller').html('<strong>Số điện thoại</strong> không hợp lệ');
+                    $('#error_display_seller').show();
+                    $('#success_display_seller').hide();
+                    return false;
+                }
+            }
+            $.ajax({
+                url : url_base+"tai-khoan/them",
+                type : "POST",
+                dateType:"json",
+                data : seller_user,
+                success : function (response){
+                    if(response.message == 'success'){
+                        $('#success_register_seller').html('Tài khoản đăng ký <strong>thành công</strong>');
+                        $('#error_display_seller').hide();
+                        $('#success_display_seller').show();
+                    }else if(response.message == 'exist'){
+                        $('#error_register_seller').html('Email này đã được dùng để đăng ký');
+                        $('#error_display_seller').show();
+                        $('#success_display_seller').hide();
+                    }else{
+                        $('#error_register_seller').html('Tài khoản đăng ký <strong>không thành công</strong>');
+                        $('#error_display_seller').show();
+                        $('#success_display_seller').hide();
+                    }
+                },
+                error: function(response) {
+                    $('#error_register_seller').html('Status '+response.status+': '+response.statusText);
+                    $('#error_display_seller').show();
+                    $('#success_display_seller').hide();
+                }
+            });
+        }
+    });
 
+    $('#btn_seller_login').click(function(){
+        $('#login-page').animate({ scrollTop: 0 }, 'fast');
+        var email = $('input[name=email_seller_login]').val();
+        var password = $('input[name=password_seller_login]').val();
+        if(!email || !password){
+            $('#error_login_seller').html('Vui lòng điền đầy đủ thông tin đăng nhập');
+            $('#error_display_login_seller').show();
+        }else if(!checkEmail(email)){
+            $('#error_login_seller').html('<strong>Email</strong> không hợp lệ');
+            $('#error_display_login_seller').show();
+        }else if(password.length < 6){
+            $('#error_login_seller').html('<strong>Mật khẩu</strong> phải từ 6 kí tự trở lên');
+            $('#error_display_login_seller').show();
+        }else{
+            $.ajax({
+                url : url_base+"tai-khoan/dang-nhap",
+                type : "POST",
+                dateType:"json",
+                data : {email: email, password: password, role_id: 2},
+                success : function (response){
+                    if(response.message == 'fail'){
+                        $('#error_login_seller').html('Đăng nhập <strong>không thành công</strong>');
+                        $('#error_display_login_seller').show();
+                    }
+                },
+                error: function(response) {
+                    $('#error_login_seller').html('Status '+response.status+': '+response.statusText);
+                    $('#error_display_login_seller').show();
+                }
+            });
+        }
+    });
+
+    $('#close_alert_error_seller').click(function () {
+        $('#error_display_seller').hide();
+    });
+
+    $('#close_alert_success_seller').click(function () {
+        $('#success_display_seller').hide();
+    });
+
+    $('#close_alert_error_login_seller').click(function(){
+        $('#error_display_login_seller').hide();
+    });
+
+    $(document).ready(function(){
+        $('#error_display_login_seller').hide();
+        goLoginFormSeller();
+    });
 </script>

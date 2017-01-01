@@ -34,32 +34,5 @@
     <%= render "shared/login_modal" %>
   </div>
   <%= render "shared/mobile_menu" %>
-  <script type="text/javascript">
-      $(document).ready(function(){
-          ! function($) {
-              $(function() {
-                  $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
-                      e.stopPropagation();
-                  });
-                  $(document.body).on('click', '[data-toggle="dropdown"]', function() {
-                      if (!$(this).parent().hasClass('open') && this.href && this.href != '#') {
-                          window.location.href = this.href;
-                      }
-                  });
-              })
-          }(window.jQuery);
-          $('#btn_tim_kiem').click(function(){
-              var key = $('#tu_khoa').val();
-              if(!key.trim()){
-                  $('#tu_khoa').val('');
-                  return false;
-              }
-          });
-          backtotop();
-          $('.close').click(function(){
-              $('#loginModal').modal('hide');
-          });
-      });
-  </script>
   </body>
 </html>

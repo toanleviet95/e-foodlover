@@ -108,6 +108,9 @@ hr{
 .login-part:hover{
     color: #f8694d;
 }
+#register-form{
+    display: none;
+}
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 

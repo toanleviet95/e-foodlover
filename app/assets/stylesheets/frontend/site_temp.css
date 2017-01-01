@@ -2868,6 +2868,7 @@ ol {
     font-family: monospace
 }
 .page-subheading {
+    text-align: center;
     position: relative;
     background: #333;
     font-family: Roboto;

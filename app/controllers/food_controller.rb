@@ -1,4 +1,5 @@
 class FoodController < ApplicationController
+
   def index
     if params[:category_id].to_i > 0
       @category = Category.new.get_category(params[:category_id])

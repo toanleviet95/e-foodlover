@@ -1,5 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :category
+  belongs_to :user
   self.per_page = 12
   def get_partial_category_promotes(category_id)
     Food.joins(:category).where('parent_id = ? and promote_price > 0',category_id).last(4)

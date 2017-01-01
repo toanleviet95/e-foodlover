@@ -24,11 +24,6 @@
 
 <section id="columns" class="columns-container">
   <div class="container">
-    <div id="top_column">
-      <div class="row">
-
-      </div>
-    </div>
     <div class="row">
       <aside>
         <div id="left_column" class="left_column sidebar col-sm-4 col-md-3">
@@ -55,7 +50,7 @@
 
       <div id="center_column" class="center_column col-sm-8 col-md-9">
         <div class="product-border product_list grid">
-          <% if @foods.length > 0%>
+          <% if @foods %>
               <% i = 0 %>
               <% @foods.each do |food| %>
                   <% if i % 4 == 0 %>
@@ -103,7 +98,7 @@
                         </div>
                       </div>
                       <hr/>
-                      <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;Toàn Lê</div>
+                      <div class="text-center"><i class="fa fa-user-circle"></i>&nbsp;<%= food.user.fullname %></div>
                     </div>
                   </div>
                   <% i = i + 1 %>

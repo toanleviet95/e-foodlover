@@ -63,7 +63,7 @@
                           <b>Tiết kiệm: </b><span style="color: #f8694d; font-weight: bold"><%= sale_off(@food.price, @food.promote_price) %>%</span>
                         </li>
                     <% end %>
-                    <li><i class="fa fa-chevron-right"></i><b>Đầu bếp: </b> Toàn Lê</li>
+                    <li><i class="fa fa-chevron-right"></i><b>Đầu bếp: </b> <%= @food.user.fullname %></li>
                     <li><i class="fa fa-chevron-right"></i><b>Tình trạng: </b>
                       <% if @food.status %>
                         Còn hàng

@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @current_user ||= Account.find_by(email: session[:email], role_id: session[:role_id]) if session[:email]
+    @current_user ||= Account.find_by(email: cookies[:email], role_id: cookies[:role_id], provider: cookies[:provider]) if cookies[:email] and cookies[:provider]
   end
 end
