@@ -1,0 +1,230 @@
+<section id="columns" class="columns-container">
+  <div id="columns" class="container">
+    <div class="row">
+      <div id="center_column" class="center_column col-md-12">
+        <div id="cart-page">
+            <h1 class="page-header"><i class="fa fa-shopping-cart"></i>&nbsp;Giỏ hàng</h1>
+            <% if @items %>
+            <div class="page-content">
+          <div class="cart_header_labels clearfix">
+            <div class="label_item col-xs-12 col-sm-2 col-md-1">
+              <div class="cart_product first_item">
+                Hình ảnh
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-3 col-md-2">
+              <div class="cart_description item">
+                Tên món ăn
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-3 col-md-2">
+              <div class="cart_description item">
+                Số lượng hiện có
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-2 col-md-2">
+              <div class="cart_price item">
+                Giá
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-2 col-md-2">
+              <div class="cart_quantity item">
+                Số lượng mua
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-2 col-md-2">
+              <div class="cart_total item">
+                Tổng
+              </div>
+            </div>
+            <div class="label_item col-xs-12 col-sm-1 col-md-1">
+              <div class="cart_delete last_item">
+                Xóa
+              </div>
+            </div>
+          </div>
+          <% @items.each do |item| %>
+              <div class="list_product_cart clearfix">
+
+                <div class="cpro_item col-xs-12 col-sm-2 col-md-1">
+                  <div class="cpro_item_inner">
+                    <a href="/<%= item[:url] ? item[:url]+'-p'+item[:id].to_s : '' %>" class="cart__image">
+                      <%= image_tag 'food/'+item[:image], :width=>'75', :height=>'75', :alt=>item[:name] %>
+                    </a>
+                  </div>
+                </div>
+                <div class="cpro_item col-xs-12 col-sm-3 col-md-2">
+                  <div class="cpro_item_inner">
+                    <span class="visible-xs">Tên: </span>
+                    <a href="/<%=  item[:url] ? item[:url]+'-p'+item[:id].to_s : '' %>" class="product_name">
+                      <%= item[:name] %>
+                    </a>
+                  </div>
+                </div>
+                <div class="cpro_item col-xs-12 col-sm-3 col-md-2">
+                  <div class="cpro_item_inner">
+                    <span class="visible-xs">Số lượng hiện có: </span>
+                    <span class="stock_qty"><%= item[:stock_qty] %></span>
+                  </div>
+                </div>
+                <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                  <div class="cpro_item_inner">
+                    <span class="visible-xs">Giá: </span>
+                    <span class="price product-price food_price">
+                      <%= number_to_currency(item[:price], :unit => '', :precision => 0) %>₫
+                    </span>
+                  </div>
+                </div>
+                <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
+                  <div class="cpro_item_inner">
+                    <span class="visible-xs">Số lượng mua: </span>
+                    <input class="input-text qty" type="number" name="Lines" id="<%= item[:id].to_s %>" value="<%= item[:qty] %>" min="1">
+                  </div>
+                </div>
+                <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                  <div class="cpro_item_inner">
+                    <span class="visible-xs">Tổng: </span>
+                    <span class="price product-price total_price">
+                      <%= number_to_currency(item[:price]*item[:qty], :unit => '', :precision => 0) %>₫
+                    </span>
+                  </div>
+                </div>
+                <div class="cpro_item col-xs-12 col-sm-1 col-md-1">
+                  <div class="cpro_item_inner">
+                    <a style="cursor: pointer" id="<%= item[:id] %>" class="cart__remove">
+                      <small>Xóa</small>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+          <div class="list_button_cart clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+              <p>
+                <span class="cart__subtotal-title">Tổng cộng</span>
+                <span class="h3 cart__subtotal"><%= number_to_currency(cookies[:cur_cost], :unit => '', :precision => 0) %>₫</span>
+              </p>
+              <input type="button" name="update" class="btn btn-outline update-cart" value="Cập nhật giỏ hàng">
+              <button id="payment_btn" class="btn btn-default" type="button">Tiến hành thanh toán</button>
+            </div>
+          </div>
+              <div id="error_display_cart" style="display:none; margin-top: 10px;" class="alert alert-danger">
+                <a id="close_alert_error_cart" class="close" aria-label="close">&times;</a>
+                <span id="error_cart"></span>
+              </div>
+        </div>
+          <% else %>
+            <h4 class="text-center">GIỎ HÀNG CỦA BẠN CHƯA CÓ MÓN ĂN&nbsp;<i class="fa fa-smile-o"></i></h4>
+          <% end %>
+          <p class="cart_navigation clearfix text-center">
+            <a class="btn btn-default" href="/trang-chu">Tiếp tục mua hàng</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  $('.cart__remove').click(function(){
+      var object = $(this).parent().parent().parent();
+      var id = $(this).attr('id');
+      $.ajax({
+          url : url_base+"gio-hang/xoa/"+id,
+          type : "GET",
+          success : function (response){
+              if(response.message == 'success'){
+                  window.location.reload();
+              }
+              return false;
+          }
+      });
+  });
+  $('input[name=update]').click(function(){
+      var data = [];
+     $('input[name=Lines]').each(function () {
+         var id = $(this).attr('id');
+         var qty = $(this).val();
+         var price = $(this).parent().parent().parent().find('.food_price').text().trim();
+         var stock_qty = $(this).parent().parent().parent().find('.stock_qty').text().trim();
+         price = changeFormatCurrency(price);
+         var object = {
+             food_id: id,
+             price: price,
+             qty: qty,
+             stock_qty: stock_qty
+         };
+         data.push(object);
+     });
+     var check = false;
+     for(var i = 0; i < data.length; i++){
+        if(isNaN(data[i].qty) || data[i].qty*1 < 1 || data[i].qty == ''){
+            $('#error_display_cart').show();
+            $('#error_cart').text('Số lượng mua không hợp lệ');
+            return false;
+        }else if(data[i].qty*1 > data[i].stock_qty*1){
+            $('#error_display_cart').show();
+            $('#error_cart').text('Số lượng mua không được vượt quá số lượng hiện có');
+            return false;
+        }else{
+            check = true;
+        }
+     }
+     if(check){
+         $.ajax({
+             url : url_base+"gio-hang/cap-nhat",
+             type : "POST",
+             dateType:"json",
+             data : {cart: data},
+             success : function (response){
+                 if(response.message == 'success'){
+                     window.location.reload();
+                 }else {
+                     $('#error_display_cart').show();
+                     $('#error_cart').text('Không cập nhật được giỏ hàng');
+                 }
+             }
+         });
+     }else{
+         return false;
+     }
+  });
+  $('#payment_btn').click(function(){
+      var data = [];
+      $('input[name=Lines]').each(function () {
+          var id = $(this).attr('id');
+          var qty = $(this).val();
+          var price = $(this).parent().parent().parent().find('.food_price').text().trim();
+          var stock_qty = $(this).parent().parent().parent().find('.stock_qty').text().trim();
+          price = changeFormatCurrency(price);
+          var object = {
+              food_id: id,
+              price: price,
+              qty: qty,
+              stock_qty: stock_qty
+          };
+          data.push(object);
+      });
+      var check = false;
+      for(var i = 0; i < data.length; i++){
+          if(isNaN(data[i].qty) || data[i].qty*1 < 1 || data[i].qty == ''){
+              $('#error_display_cart').show();
+              $('#error_cart').text('Số lượng mua không hợp lệ');
+              return false;
+          }else if(data[i].qty*1 > data[i].stock_qty*1){
+              $('#error_display_cart').show();
+              $('#error_cart').text('Số lượng mua không được vượt quá số lượng hiện có');
+              return false;
+          }else{
+              check = true;
+          }
+      }
+      if(check){
+          window.location.href = '/thanh-toan/hoa-don';
+      }else{
+          return false;
+      }
+  });
+  $('#close_alert_error_cart').click(function(){
+      $('#error_display_cart').hide();
+  });
+</script>

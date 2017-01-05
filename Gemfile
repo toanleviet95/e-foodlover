@@ -56,6 +56,11 @@ gem 'omniauth-google-oauth2'
 # Use JQuery Datatables
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
+# Use 2Checkout Payment
+gem 'twocheckout'
+
+gem 'paypal-sdk-rest'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

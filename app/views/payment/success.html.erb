@@ -1,0 +1,137 @@
+<%= stylesheet_link_tag 'frontend/checkout', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'frontend/thankyou', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'frontend/checkout_add', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'frontend/twine.min', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'frontend/checkout', 'data-turbolinks-track': 'reload' %>
+<div context="checkout" define="{checkout: new Bizweb.Checkout(this,{})}" class="container">
+  <div class="main">
+    <div class="wrap clearfix">
+      <div class="row thankyou-infos">
+        <div class="col-md-7 thankyou-message">
+          <div class="thankyou-message-icon unprint">
+            <div class="icon icon--order-success svg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px">
+                <g fill="none" stroke="#8EC343" stroke-width="2">
+                  <circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+                  <path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="thankyou-message-text">
+            <h3>Cảm ơn bạn đã đặt hàng</h3>
+            <div style="font-style: italic;">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12 order-info" define="{order_expand: false}">
+          <div class="order-summary order-summary--custom-background-color ">
+            <div class="order-summary-header summary-header--thin summary-header--border">
+              <h2>
+                <label class="control-label">Đơn hàng</label>
+                #<%= @transaction.id %>
+                <label class="control-label unprint">(<%= @transaction.quantity %>)</label>
+              </h2>
+              <a class="underline-none expandable expandable--pull-right mobile unprint" bind-event-click="toggle(this, '.order-items')" bind-class="{open: order_expand}" href="javascript:void(0)">
+                Xem chi tiết
+              </a>
+            </div>
+            <div class="order-items mobile--is-collapsed" bind-class="{'mobile--is-collapsed': !order_expand}">
+              <div class="summary-body summary-section summary-product">
+                <div class="summary-product-list">
+                  <ul class="product-list">
+                    <% @items.each do |item| %>
+                      <li class="product product-has-image clearfix">
+                      <div class="product-thumbnail pull-left">
+                        <div class="product-thumbnail__wrapper">
+                          <%= image_tag 'food/'+item[:image], :class=>'product-thumbnail__image', :alt=>item[:name] %>
+                        </div>
+                        <span class="product-thumbnail__quantity unprint" aria-hidden="true"><%= item[:qty] %></span>
+                      </div>
+                      <div class="product-info pull-left">
+                        <span class="product-info-name">
+                          <strong><%= item[:name] %></strong>
+                          <label class="print">x<%= item[:qty] %></label>
+                        </span>
+                      </div>
+                      <strong class="product-price pull-right">
+                        <%= number_to_currency(item[:price], :unit => '', :precision => 0) %>₫
+                      </strong>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="summary-section">
+              <div class="total-line total-line-total clearfix">
+                <span class="total-line-name total-line-name--bold pull-left">
+                  Tổng cộng
+                </span>
+                <span class="total-line-price pull-right">
+                  <%= number_to_currency(@transaction.amount, :unit => '', :precision => 0) %>₫
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-12 customer-info">
+          <div class="shipping-info">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="order-summary order-summary--white no-border no-padding-top">
+                  <div class="order-summary-header">
+                    <h2>
+                      <label class="control-label">Thông tin khách hàng</label>
+                    </h2>
+                  </div>
+                  <div class="summary-section no-border no-padding-top">
+                    <p>Họ tên: <%= @transaction.customer_name %></p>
+                    <p>Email: <%= @transaction.customer_email %></p>
+                    <p>Số điện thoại: <%= @transaction.customer_phone %></p>
+                    <p>Địa chỉ: <%= @transaction.customer_address %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="order-summary order-summary--white no-border">
+                  <div class="order-summary-header">
+                    <h2>
+                      <label class="control-label">Hình thức thanh toán</label>
+                    </h2>
+                  </div>
+                  <div class="summary-section no-border no-padding-top">
+                    <span><%= @transaction.payment_method %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="order-summary order-summary--white no-border">
+                  <div class="order-summary-header">
+                    <h2>
+                      <label class="control-label">Hình thức vận chuyển</label>
+                    </h2>
+                  </div>
+                  <div class="summary-section no-border no-padding-top">
+                    <span>Giao hàng tận nơi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-success unprint">
+            <a style="margin-top: 10px;" href="/" class="btn btn-primary">
+              Tiếp tục mua hàng
+            </a>
+            <button style="margin-top: 10px;" class="btn btn-primary" type="button" onclick="window.print()">IN HÓA ĐƠN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer unprint">
+      <div class="mt10"></div>
+    </div>
+  </div>
+</div>

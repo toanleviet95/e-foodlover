@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  has_many :accounts, foreign_key: "email", class_name: "Account"
   has_many :foods
+  has_many :invoices
   def create_client (auth)
     if User.exists?(:email => auth.info.email)
       user = User.find_by(email: auth.info.email)

@@ -64,11 +64,11 @@
                         </li>
                     <% end %>
                     <li><i class="fa fa-chevron-right"></i><b>Đầu bếp: </b> <%= @food.user.fullname %></li>
-                    <li><i class="fa fa-chevron-right"></i><b>Tình trạng: </b>
+                    <li><i class="fa fa-chevron-right"></i><b>Số lượng trong kho: </b>
                       <% if @food.status %>
-                        Còn hàng
+                          <%= @food.stock_qty %>
                       <% else %>
-                        Hết hàng
+                          Hết hàng
                       <% end %>
                     </li>
                   </ul>
@@ -76,12 +76,11 @@
               </div>
               <div class="product-right-column col-xs-12 col-sm-12 col-md-push-5 col-md-12">
                 <div>
-                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-to-cart-form">
                     <div class="quantity_wanted_p clearfix">
-                      <label for="qty" class="quantity-selector">Số lượng cần mua</label>
+                      <label for="quantity" class="quantity-selector">Số lượng cần mua</label>
                       <div class="pull-left">
                         <div class="custom pull-left">
-                          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="input-text qty fix-inp-product">
+                          <input type="number" id="quantity" name="quantity" value="1" min="1" class="input-text qty fix-inp-product">
                         </div>
                       </div>
                     </div>
@@ -90,7 +89,6 @@
                         <i class="fa fa-cart-plus"></i>&nbsp;Thêm vào giỏ hàng
                       </button>
                     </div>
-                  </form>
                 </div>
                 <!--<div class="line-product"></div>-->
                 <!--<ul id="usefull_link_block" class="clearfix no-print list-inline">-->
@@ -169,8 +167,7 @@
   </div>
   <div class="container" style="margin-top: 20px"><%= render 'food/partials/products_same_category' %></div>
 </section>
-
-<script>
+<script type="text/javascript">
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -198,7 +195,7 @@
 
             navigationText: ["‹", "›"],
             autoPlay: true,
-            stopOnHover: true,
+            stopOnHover: true
         });
 
         $('.btn.social-sharing').on('click', function () {
@@ -221,5 +218,54 @@
             el.find(".owl-item").removeClass("last");
             el.find(".owl-item.active").last().addClass("last");
         };
+
+        $('.btn-cart').on('click',function(){
+            var url = window.location.href;
+            var segments = url.split('-');
+            var food_id = segments[segments.length-1];
+            food_id = food_id.replace('p','');
+            food_id = food_id * 1;
+            var itemImg = $('.sp-large');
+            var cart = $('.icon-cart');
+            var qty = $('#quantity').val();
+            if (qty){
+                qty = qty * 1;
+                if(qty > 0){
+                    $('html, body').animate({
+                        'scrollTop' : $('.icon-cart').position().top
+                    });
+                    flyToElement($(itemImg), cart);
+                    var cur_qty = $('#cart_qty').text();
+                    var cur_cost = $('#cart_cost').text();
+                    var food_cost = $('#ProductPrice').text();
+                    food_cost = changeFormatCurrency(food_cost);
+                    cur_cost = changeFormatCurrency(cur_cost);
+                    cur_qty = cur_qty * 1 + qty;
+                    cur_cost = cur_cost * 1 + food_cost * 1 * qty;
+                    var data = {cur_cost:cur_cost,cur_qty:cur_qty,item:{food_id: food_id,qty: qty}};
+                    $.ajax({
+                        url : url_base+"gio-hang/them",
+                        type : "POST",
+                        dateType:"json",
+                        data : data,
+                        success : function (response){
+                            if(response.message == 'success'){
+                                setTimeout(function() {
+                                    cur_cost = formatCurrency(cur_cost);
+                                    $('#cart_qty').text(cur_qty);
+                                    $('#cart_cost').text(cur_cost);
+                                }, 2000);
+                            }
+                            return false;
+                        }
+                    });
+
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        });
     });
 </script>

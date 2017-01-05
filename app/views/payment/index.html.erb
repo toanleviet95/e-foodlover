@@ -1,0 +1,241 @@
+<%= stylesheet_link_tag 'frontend/checkout', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'frontend/thankyou', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'frontend/checkout_add', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'frontend/twine.min', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'frontend/checkout', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'frontend/jquery.creditCardValidator', 'data-turbolinks-track': 'reload' %>
+<form data-toggle="validator" class="formCheckout">
+  <div context="checkout" define="{checkout: new Bizweb.Checkout(this)}" class="container checkout">
+    <div class="main">
+      <div class="wrap clearfix">
+        <div class="row">
+          <% if @items %>
+          <div class="col-md-4 col-sm-12 order-info" define="{order_expand: false}">
+            <div class="order-summary order-summary--custom-background-color ">
+              <div class="order-summary-header summary-header--thin summary-header--border">
+                <h2>
+                  <label class="control-label">Đơn hàng</label>
+                  <label class="control-label">(<%= cookies[:cur_qty] %>)</label>
+                </h2>
+                <a class="underline-none expandable expandable--pull-right mobile" bind-event-click="toggle(this, '.order-items')" bind-class="{open: order_expand}" href="javascript:void(0)">
+                  Xem chi tiết
+                </a>
+              </div>
+              <div class="order-items mobile--is-collapsed" bind-class="{'mobile--is-collapsed': !order_expand}">
+                <div class="summary-body summary-section summary-product">
+                  <div class="summary-product-list">
+                    <ul class="product-list">
+                      <% @items.each do |item| %>
+                      <li class="product product-has-image clearfix">
+                        <div class="product-thumbnail pull-left">
+                          <div class="product-thumbnail__wrapper">
+                            <%= image_tag 'food/'+item[:image], :class=>'product-thumbnail__image', :alt=>item[:name] %>
+                          </div>
+                          <span class="product-thumbnail__quantity" aria-hidden="true"><%= item[:qty] %></span>
+                        </div>
+                        <div class="product-info pull-left">
+                          <span class="product-info-name">
+                            <strong><%= item[:name] %></strong>
+                          </span>
+                        </div>
+                        <strong class="product-price pull-right">
+                          <%= number_to_currency(item[:price], :unit => '', :precision => 0) %>₫
+                        </strong>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-section border-top-none--mobile">
+                <div class="total-line total-line-total clearfix">
+                  <span class="total-line-name pull-left">
+                    Tổng cộng
+                  </span>
+                  <span class="total-line-price pull-right"><%= number_to_currency(cookies[:cur_cost], :unit => '', :precision => 0) %>₫</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group clearfix hidden-sm hidden-xs">
+              <input class="btn btn-primary col-md-12 mt10 btn-checkout" type="button" value="ĐẶT HÀNG">
+            </div>
+          </div>
+          <% end %>
+          <div style="background: white" class="col-md-4 col-sm-12 customer-info">
+            <div class="form-group m0">
+              <h2 class="text-center">
+                <label class="control-label">Thông tin khách hàng</label>
+              </h2>
+            </div>
+
+            <div class="form-group">
+              <input required name="email_payment" value="<%= @user ? @user.email : '' %>" type="email" class="form-control" placeholder="Nhập email">
+            </div>
+
+            <div class="billing">
+              <div>
+                <div class="form-group">
+                  <input required name="name_payment" value="<%= @user ? @user.fullname : '' %>" class="form-control" placeholder="Nhập họ và tên">
+                </div>
+
+                <div class="form-group">
+                  <input required name="phone_payment" value="<%= @user ? @user.phone_number : '' %>" class="form-control" placeholder="Nhập số điện thoại">
+                </div>
+
+
+                <div class="form-group">
+                  <input required name="address_payment" value="<%= @user ? @user.address : '' %>" class="form-control" placeholder="Nhập địa chỉ">
+                </div>
+
+
+                <div class="form-group">
+                  <div class="next-select__wrapper">
+                    <select id="city_payment" class="form-control next-select">
+                      <option value="None">Chọn thành phố</option>
+                      <option value="Hồ Chí Minh" <%= (@user && @user.city == 'Hồ Chí Minh') ? 'selected' : '' %>>Hồ Chí Minh</option>
+                      <option value="Hà Nội" <%= (@user && @user.city == 'Hà Nội') ? 'selected' : '' %>>Hà Nội</option>
+                      <option value="Hải Phòng" <%= (@user && @user.city == 'Hải Phòng') ? 'selected' : '' %>>Hải Phòng</option>
+                      <option value="Cần Thơ" <%= (@user && @user.city == 'Cần Thơ') ? 'selected' : '' %>>Cần Thơ</option>
+                      <option value="Đà Nẵng" <%= (@user && @user.city == 'Đà Nẵng') ? 'selected' : '' %>>Đà Nẵng</option>
+                      <option value="Biên Hòa" <%= (@user && @user.city == 'Biên Hòa') ? 'selected' : '' %>>Biên Hòa</option>
+                      <option value="Nha Trang" <%= (@user && @user.city == 'Nha Trang') ? 'selected' : '' %>>Nha Trang</option>
+                      <option value="Huế" <%= (@user && @user.city == 'Huế') ? 'selected' : '' %>>Huế</option>
+                      <option value="Buôn Ma Thuột" <%= (@user && @user.city == 'Buôn Ma Thuột') ? 'selected' : '' %>>Buôn Ma Thuột</option>
+                      <option value="Vinh" <%= (@user && @user.city == 'Vinh') ? 'selected' : '' %>>Vinh</option>
+                      <option value="Vũng Tàu" <%= (@user && @user.city == 'Vũng Tàu') ? 'selected' : '' %>>Vũng Tàu</option>
+                      <option value="Quy Nhơn" <%= (@user && @user.city == 'Quy Nhơn') ? 'selected' : '' %>>Quy Nhơn</option>
+                      <option value="Long Xuyên" <%= (@user && @user.city == 'Long Xuyên') ? 'selected' : '' %>>Long Xuyên</option>
+                      <option value="Thái Nguyên" <%= (@user && @user.city == 'Thái Nguyên') ? 'selected' : '' %>>Thái Nguyên</option>
+                      <option value="Nam Định" <%= (@user && @user.city == 'Nam Định') ? 'selected' : '' %>>Nam Định</option>
+                      <option value="Rạch Giá" <%= (@user && @user.city == 'Rạch Giá') ? 'selected' : '' %>>Rạch Giá</option>
+                      <option value="Thủ Dầu Một" <%= (@user && @user.city == 'Thủ Dầu Một') ? 'selected' : '' %>>Thủ Dầu Một</option>
+                      <option value="Hạ Long" <%= (@user && @user.city == 'Hạ Long') ? 'selected' : '' %>>Hạ Long</option>
+                      <option value="Phan Thiết" <%= (@user && @user.city == 'Phan Thiết') ? 'selected' : '' %>>Phan Thiết</option>
+                      <option value="Thanh Hóa" <%= (@user && @user.city == 'Thanh Hóa') ? 'selected' : '' %>>Thanh Hóa</option>
+                    </select>
+                    <span class="next-icon next-icon--size-12">
+                      <img src="//bizweb.dktcdn.net/assets/themes_support/angle-down.png?2" alt="" class="img-responsive">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 customer-info" style="background: white">
+            <div class="form-group payment-method-list">
+              <h2 class="text-center">
+                <label class="control-label">Hình thức thanh toán</label>
+              </h2>
+              <div><input checked id="cod_check" type="radio" name="method_payment" value="COD">&nbsp;Thanh toán khi nhận hàng (COD)</div>
+              <div><input id="paypal_check" type="radio" name="method_payment" value="PAYPAL">&nbsp;<%= image_tag 'themes_support/Paypal.jpg', :class=>'img-responsive' %></div>
+              <div class="form-group">
+                <input disabled required name="number_payment" class="form-control" placeholder="Nhập mã thẻ">
+              </div>
+              <div class="row" style="margin-bottom: 43px;">
+                <div class="form-group col-md-4"><input disabled required name="month_payment" class="form-control" maxlength="2" placeholder="MM"></div>
+                <div class="form-group col-md-4"><input disabled required name="year_payment" class="form-control" maxlength="4" placeholder="YYYY"></div>
+                <div class="form-group col-md-4"><input disabled required name="cvv_payment" class="form-control" placeholder="CVV" maxlength="3"></div>
+              </div>
+            </div>
+            <div class="form-group clearfix hidden-md hidden-lg">
+              <input class="btn btn-primary col-md-12 mt10 btn-checkout" type="button" value="ĐẶT HÀNG">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="error_display_payment" style="display: none; margin-top: 10px;" class="alert alert-danger">
+      <a id="close_alert_error_payment" class="close" aria-label="close">&times;</a>
+      <span id="error_payment"></span>
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+    context = {};
+    $(function () {
+        Twine.reset(context).bind().refresh();
+    });
+    $('.btn-checkout').click(function(){
+        var email = $('input[name=email_payment]').val();
+        var fullname = $('input[name=name_payment]').val();
+        var phone = $('input[name=phone_payment]').val();
+        var address = $('input[name=address_payment]').val();
+        var city = $('#city_payment').val();
+        var method = $('input[name=method_payment]:checked').val();
+        if(!email || !fullname || !phone || !address ||  !city || !method || city == 'None'){
+            $('#error_payment').html('Vui lòng điền đầy đủ thông tin');
+            $('#error_display_payment').show();
+        }else if(!checkEmail(email)){
+            $('#error_payment').html('<strong>Email</strong> không hợp lệ');
+            $('#error_display_payment').show();
+        }else if(!checkPhone(phone)){
+            $('#error_payment').html('<strong>Số điện thoại</strong> không hợp lệ');
+            $('#error_display_payment').show();
+        }else{
+            var transaction = {
+                email: email, fullname: fullname, address: address, city: city, phone: phone, method: method
+            };
+            if (transaction.method == 'PAYPAL'){
+                var month = $('input[name=month_payment]').val();
+                var year = $('input[name=year_payment]').val();
+                var cvv = $('input[name=cvv_payment]').val();
+                var number = $('input[name=number_payment]').val();
+                $('input[name=number_payment]').validateCreditCard(function(result)
+                {
+                    if(result.valid && result.length_valid && result.luhn_valid){
+                        transaction.card_type = result.card_type.name
+                    }
+                });
+                var d = new Date();
+                var n = d.getFullYear();
+                if(isNaN(month) || parseInt(month) > 12 || parseInt(month) < 1 || isNaN(year) || parseInt(year) < n || isNaN(cvv) || !transaction.card_type){
+                    $('#error_payment').html('Thông tin thẻ tín dụng <strong>chưa chính xác</strong>');
+                    $('#error_display_payment').show();
+                    return false;
+                }else{
+                    transaction.card_number = number;
+                    transaction.card_month = month;
+                    transaction.card_year = year;
+                    transaction.card_cvv = cvv;
+                }
+            }
+            $.ajax({
+                    url: url_base + "thanh-toan/them",
+                    type: "POST",
+                    dateType: "json",
+                    data: transaction,
+                    success: function (response) {
+                        if (response.message == 'success') {
+                            window.location.href = '/hoa-don/chi-tiet'
+                        } else {
+                            $('#error_payment').html('Thanh toán <strong>không thành công</strong>');
+                            $('#error_display_payment').show();
+                        }
+                    },
+                    error: function (response) {
+                        $('#error_payment').html('Status ' + response.status + ': ' + response.statusText);
+                        $('#error_display_payment').show();
+                    }
+            });
+        }
+    });
+    $('#close_alert_error_payment').click(function(){
+        $('#error_display_payment').hide();
+    });
+    $('#paypal_check').click(function () {
+        if( $(this).is(':checked') ){
+            $("input[name=number_payment]").prop('disabled', false);
+            $("input[name=month_payment]").prop('disabled', false);
+            $("input[name=year_payment]").prop('disabled', false);
+            $("input[name=cvv_payment]").prop('disabled', false);
+        }
+    });
+    $('#cod_check').click(function () {
+        if( $(this).is(':checked') ){
+            $("input[name=number_payment]").prop('disabled', true);
+            $("input[name=month_payment]").prop('disabled', true);
+            $("input[name=year_payment]").prop('disabled', true);
+            $("input[name=cvv_payment]").prop('disabled', true);
+        }
+    });
+</script>

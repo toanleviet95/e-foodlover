@@ -9,3 +9,10 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( frontend/checkout.css )
+Rails.application.config.assets.precompile += %w( frontend/thankyou.css )
+Rails.application.config.assets.precompile += %w( frontend/checkout_add.css )
+Rails.application.config.assets.precompile += %w( frontend/checkout.js )
+Rails.application.config.assets.precompile += %w( frontend/twine.min.js )
+Rails.application.config.assets.precompile += %w( frontend/money-helper.js )
+Rails.application.config.assets.precompile += %w( frontend/jquery.creditCardValidator.js )

@@ -1,4 +1,5 @@
-var url_base = 'http://localhost:3000/';
+//var url_base = 'http://localhost:3000/';
+var url_base = 'http://www.e-foodlover.com/';
 
 $(document).ready(function(){
     ! function($) {
@@ -20,7 +21,6 @@ $(document).ready(function(){
             return false;
         }
     });
-    backtotop();
 });
 
 function checkDate(day,month,year) {
@@ -39,6 +39,14 @@ function checkPhone(phone) {
 function checkEmail(email) {
     var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return filter.test(email);
+}
+
+function formatCurrency(number){
+    return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+'₫';
+}
+
+function changeFormatCurrency(cost){
+    return Number(cost.replace(/[^0-9\.]+/g,""));
 }
 
 function showRecoverPasswordFormClient() {

@@ -467,7 +467,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     display: inline-block;
-    text-indent: 100%;
     white-space: nowrap;
 }
 
@@ -510,7 +509,6 @@ svg:not(:root) {
 }
 
 .print-link {
-    background-image: url("themes_support/ico-print.png"), none;
     background-position: top 0px left;
     background-repeat: no-repeat;
     line-height: 34px;

@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= Account.find_by(email: cookies[:email], role_id: cookies[:role_id], provider: cookies[:provider]) if cookies[:email] and cookies[:provider]
   end
+
 end

@@ -56,17 +56,13 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "invoices", primary_key: "invoice_id", id: :integer, default: -> { "nextval('invoice_id_seq'::regclass)" }, force: :cascade, comment: "Hóa đơn thanh toán" do |t|
-    t.integer "transaction_id",                null: false
-    t.integer "food_id",                       null: false
-    t.integer "quantity",                      null: false
-    t.decimal "amount",         precision: 20, null: false
-    t.boolean "status",                        null: false, comment: "true: đơn hàng đã gửi đến khách hàng\nfalse: đơn hàng chưa được gửi đến khách hàng"
-  end
-
-  create_table "payments", primary_key: "payment_id", id: :integer, force: :cascade, comment: "Hình thức thanh toán" do |t|
-    t.string "name",        limit: 150, null: false
-    t.text   "description"
-    t.index ["name"], name: "payment_unq", unique: true, using: :btree
+    t.integer "transaction_id",                                         null: false
+    t.integer "food_id",                                                null: false
+    t.integer "quantity",                                               null: false
+    t.decimal "amount",         precision: 20,                          null: false
+    t.boolean "status",                                                 null: false, comment: "true: đơn hàng đã gửi đến khách hàng\nfalse: đơn hàng chưa được gửi đến khách hàng"
+    t.integer "user_id",                                                null: false
+    t.date    "created_date",                  default: -> { "now()" }, null: false
   end
 
   create_table "roles", primary_key: "role_id", id: :integer, default: -> { "nextval('role_id_seq'::regclass)" }, force: :cascade, comment: "Quyền truy cập của tài khoản" do |t|
@@ -84,16 +80,17 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "transactions", primary_key: "transaction_id", id: :integer, default: -> { "nextval('transaction_id_seq'::regclass)" }, force: :cascade, comment: "Thông tin phiên giao dịch" do |t|
-    t.string   "customer_name",    limit: 150,                null: false
-    t.string   "customer_email",   limit: 250,                null: false
-    t.string   "customer_phone",   limit: 20,                 null: false
-    t.string   "customer_address", limit: 250,                null: false
-    t.decimal  "amount",                       precision: 20, null: false
-    t.integer  "payment_id",                                  null: false
+    t.string   "customer_name",    limit: 150,                                         null: false
+    t.string   "customer_email",   limit: 250,                                         null: false
+    t.string   "customer_phone",   limit: 20,                                          null: false
+    t.string   "customer_address", limit: 250,                                         null: false
+    t.decimal  "amount",                       precision: 20,                          null: false
     t.text     "payment_info"
     t.string   "security_code",    limit: 100
-    t.datetime "created_date",                                null: false
-    t.boolean  "status",                                      null: false
+    t.datetime "created_date",                                default: -> { "now()" }, null: false
+    t.boolean  "status",                                                               null: false
+    t.string   "payment_method",   limit: 50,                                          null: false
+    t.integer  "quantity",                                                             null: false
   end
 
   create_table "users", primary_key: "user_id", id: :integer, default: -> { "nextval('user_id_seq'::regclass)" }, force: :cascade, comment: "Thông tin chi tiết của người dùng" do |t|
@@ -114,5 +111,5 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "foods", "users", primary_key: "user_id", name: "food_users_fkey"
   add_foreign_key "invoices", "foods", primary_key: "food_id", name: "invoices_food_fkey"
   add_foreign_key "invoices", "transactions", primary_key: "transaction_id", name: "invoices_transactions_fkey"
-  add_foreign_key "transactions", "payments", primary_key: "payment_id", name: "transactions_payment_fkey"
+  add_foreign_key "invoices", "users", primary_key: "user_id", name: "invoices_users_fkey"
 end

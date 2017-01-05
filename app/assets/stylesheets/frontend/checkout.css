@@ -101,18 +101,6 @@ body {
     margin-top: 10px;
 }
 
-a {
-    color: #2a9dcc;
-    text-decoration: none;
-    -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-    a:hover, a:focus {
-        color: #2486ae;
-        outline: 0;
-    }
-
 textarea.form-control {
     height: 70px;
 }
@@ -187,18 +175,6 @@ hr.divider {
 
 .payment-method-list .radio > label {
     font-weight: 700;
-}
-
-.icheckbox_square, .iradio_square {
-    background: url("themes_support/square.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: medium none;
-    cursor: pointer;
-    display: inline-block;
-    height: 22px;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    width: 22px;
 }
 
 .iradio_square {
@@ -522,7 +498,6 @@ hr.divider {
     }
 
 .total-line-total {
-    border-top: 1px solid #e7e7e7;
     padding-top: 12px;
     margin-bottom: 0;
 }

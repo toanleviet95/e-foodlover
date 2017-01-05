@@ -9,17 +9,17 @@ class AccountController < ApplicationController
     account = Account.from_omniauth(auth)
     session[:email] = account.email
     session[:role_id] = account.role_id
-    cookies[:email] = { :value => account.email, :expires => Time.now + 3600}
-    cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 3600}
-    cookies[:provider] = { :value => account.provider, :expires => Time.now + 3600}
+    cookies[:email] = { :value => account.email, :expires => Time.now + 24*3600}
+    cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 24*3600}
+    cookies[:provider] = { :value => account.provider, :expires => Time.now + 24*3600}
     redirect_to root_path
   end
 
   def create
-    if AccountHelper.check_email?(params[:email]) and AccountHelper.check_date?(params[:date_of_birth]) and params[:password].length >= 6 and params[:role_id].to_i <= 3 and params[:role_id].to_i >= 1 and params[:fullname] and params[:gender]
+    if ApplicationHelper.check_email?(params[:email]) and AccountHelper.check_date?(params[:date_of_birth]) and params[:password].length >= 6 and params[:role_id].to_i <= 3 and params[:role_id].to_i >= 1 and params[:fullname] and params[:gender]
       error = false
       if params[:phone] != ''
-        if !AccountHelper.check_phone?(params[:phone])
+        if !ApplicationHelper.check_phone?(params[:phone])
           error = true
         end
       end
@@ -123,16 +123,16 @@ class AccountController < ApplicationController
   end
 
   def login
-    if AccountHelper.check_email?(params[:email]) and params[:password].length >= 6 and params[:role_id].to_i <= 3 and params[:role_id].to_i >= 1
+    if ApplicationHelper.check_email?(params[:email]) and params[:password].length >= 6 and params[:role_id].to_i <= 3 and params[:role_id].to_i >= 1
       account = Account.find_by(email: params[:email], provider: 'e-foodlover', role_id: params[:role_id].to_i)
       if account
         password = BCrypt::Password.new(account.password)
         if password == params[:password]
           session[:email] = account.email
           session[:role_id] = account.role_id
-          cookies[:email] = { :value => account.email, :expires => Time.now + 3600}
-          cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 3600}
-          cookies[:provider] = { :value => account.provider, :expires => Time.now + 3600}
+          cookies[:email] = { :value => account.email, :expires => Time.now + 24*3600}
+          cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 24*3600}
+          cookies[:provider] = { :value => account.provider, :expires => Time.now + 24*3600}
           if account.role_id == 3
             redirect_to :back
           elsif account.role_id == 2
@@ -166,6 +166,6 @@ class AccountController < ApplicationController
     cookies.delete :email
     cookies.delete :role_id
     cookies.delete :provider
-    redirect_to root_path
+    redirect_to :back
   end
 end
