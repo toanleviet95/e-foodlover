@@ -2,181 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7ce1185-2714-4f26-80d3-e15aa7e1586d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/data/Upload/2014/9/db.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/files/rau-qua-nao-o-viet-nam-khong-bi-hang-trung-quoc-gia-mao-751.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/2523496mg40451-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/2648856db1-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/2724204mg07221-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/4556114201404-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/4844276soup-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/4952601sup-jpeg-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/5237186pasta0101-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/552048541-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/68-dc4f7172-ea-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/breakfastfruits-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/com-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/fooddessertcakestrawber2-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/hrimpandpasta-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/products/tomyumsoupsma-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/currencies_img_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/currencies_img_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/currencies_img_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/currencies_img_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/currencies_img_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/fancybox_overlay.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/fancybox_sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_bannerone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_blockhtml_icon_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_blockhtml_icon_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_blockhtml_icon_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_blockhtml_icon_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_verticaltabs_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/home_verticaltabs_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/params.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/payment.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/pin.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/pnewletter_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/shop_images_footer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/slideshow_image_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/slideshow_image_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/themes/49902/assets/vendor_logo_6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/account.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/cart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/checkout.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/animate.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/block-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/blog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/checkout.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/checkout_add.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/collections.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/contact-form.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/fonts_condensed.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/fonts_hind.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/fonts_kelson.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/fonts_roboto.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/global.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/jgrowl.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/jquery.fancybox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/menu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/nprogress.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/owl.carousel.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/product.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/retina-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/site_temp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/skins.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/thankyou.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/css/wishlist.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/data/Upload/2014/9/db.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/files/rau-qua-nao-o-viet-nam-khong-bi-hang-trung-quoc-gia-mao-751.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/2523496mg40451-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/2648856db1-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/2724204mg07221-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/4556114201404-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/4844276soup-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/4952601sup-jpeg-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/5237186pasta0101-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/552048541-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/68-dc4f7172-ea-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/breakfastfruits-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/com-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/fooddessertcakestrawber2-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/hrimpandpasta-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/products/tomyumsoupsma-fix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/currencies_img_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/currencies_img_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/currencies_img_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/currencies_img_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/currencies_img_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/fancybox_overlay.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/fancybox_sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_bannerone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_blockhtml_icon_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_blockhtml_icon_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_blockhtml_icon_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_blockhtml_icon_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_verticaltabs_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/home_verticaltabs_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/params.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/payment.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/pin.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/pnewletter_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/shop_images_footer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/slideshow_image_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/slideshow_image_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes/49902/assets/vendor_logo_6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes_support/ico-print.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/images/themes_support/square.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/intro.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/checkout.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/countdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/cs.script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/fastclick.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/imagesloaded.pkgd.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/instafeed.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/isotope.pkgd.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jgrowl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.elevatezoom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.fancybox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.flexslider.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.mmenu.min.all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.scrollto-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/jquery.serialscroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/modernizr.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/money-helper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/nprogress.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/option-selectors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/owl.carousel.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/retina.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/twine.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/js/validator.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/post-detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/posts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/product-detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/products.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/search-result.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/thankyou.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Foodlover.iml" afterPath="$PROJECT_DIR$/.idea/Foodlover.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/frontend/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/frontend/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/frontend/owl.carousel.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/frontend/owl.carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/frontend/style.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/frontend/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/food/partials/_products_bestsell.html.erb" afterPath="$PROJECT_DIR$/app/views/food/partials/_products_bestsell.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/food/partials/_products_same_category.html.erb" afterPath="$PROJECT_DIR$/app/views/food/partials/_products_same_category.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/food/show.html.erb" afterPath="$PROJECT_DIR$/app/views/food/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partials/_promotion.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partials/_promotion.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_login_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_login_modal.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_mobile_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_mobile_menu.html.erb" />
     </list>
     <ignored path="Foodlover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1410,16 +1236,16 @@
       <workItem from="1483584737873" duration="43315000" />
       <workItem from="1484126081543" duration="10164000" />
       <workItem from="1484157015244" duration="2055000" />
-      <workItem from="1484220043686" duration="1366000" />
+      <workItem from="1484220043686" duration="1540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="558235000" />
+    <option name="totallyTimeSpent" value="558409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1427,7 +1253,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1590909" sideWeight="0.4941435" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1590909" sideWeight="0.4941435" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
