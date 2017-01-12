@@ -111,6 +111,14 @@ hr{
 #register-form{
     display: none;
 }
+
+div.rte > div{
+    height: auto!important;
+}
+
+._51mx {
+    display: none!important;
+}
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 

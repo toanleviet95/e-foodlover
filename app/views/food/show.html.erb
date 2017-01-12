@@ -1,3 +1,5 @@
+<div id="fb-root"></div>
+
 <div id="breadcrumbs">
   <div class="container">
     <nav role="navigation" aria-label="breadcrumbs">
@@ -46,10 +48,17 @@
                       <a href="<%= image_url('food/'+@food.image_url_3) %>"><%= image_tag 'food/'+@food.image_url_3 %></a>
                     <% end %>
                   </div>
+                <div class="fb-like" data-href="http://localhost:3000/<%= @food.url + '-p' + @food.id.to_s %>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
               </div>
               <div class="product-center-column col-xs-12 col-sm-12 col-md-7">
                 <h1><%= @food.name %></h1>
-                <div class="product-description rte"><%= @food.summary %></div>
+                <div class="product-description rte">
+                  <% if @food.summary %>
+                      <%= @food.summary.html_safe %>
+                  <% else %>
+                      <h4>Chưa có thông tin <i class="fa fa-smile-o"></i></h4>
+                  <% end %>
+                </div>
                 <div class="content_price">
                   <span id="ProductPrice" class="h2">
                     <%= @food.promote_price ? number_to_currency(@food.promote_price, :unit => '', :precision => 0) : number_to_currency(@food.price, :unit => '', :precision => 0) %>₫
@@ -97,19 +106,6 @@
                   <!--</li>-->
                 <!--</ul>-->
                 <!--<div class="line-product"></div>-->
-                <div class="socialsharing_product no-print">
-                  <ul class="social-sharing list-unstyled">
-                    <li>Chia sẻ&nbsp;
-                      <a class="btn social-sharing btn-facebook" href="javascript:void(0);" data-type="facebook">
-                        <i class="fa fa-facebook"></i> Facebook
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div style="display:none" id="content-share">
-                  <div class="share-desc">' + sharedesc + '</div>
-                  <div class="share-title">' + sharetitle + '</div>
-                </div>
               </div>
             </div>
           </div>
@@ -131,7 +127,7 @@
                   <% if @food.detail %>
                   <%= @food.detail.html_safe %>
                   <% else %>
-                  <h4>Chưa có thông tin</h4>
+                  <h4>Chưa có thông tin <i class="fa fa-smile-o"></i></h4>
                   <% end %>
                 </div>
               </section>
@@ -140,15 +136,15 @@
                   <% if @food.feature %>
                       <%= @food.feature.html_safe %>
                   <% else %>
-                      <h4>Chưa có thông tin</h4>
+                      <h4>Chưa có thông tin <i class="fa fa-smile-o"></i></h4>
                   <% end %>
                 </div>
               </section>
               <section id="idTab3" class="tab-pane page-product-box">
-
-                <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://developers.facebook.com/docs/plugins" data-width="100%" data-numposts="5" fb-xfbml-state="rendered">
-                  <span style="height: 687px;"><iframe id="f37a3c1fc90e72c" name="ff2299b0b49998" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://www.facebook.com/plugins/comments.php?api_key=483479355145437&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df8cc61935fce1%26domain%3Dleo-food.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fleo-food.bizwebvietnam.net%252Ff1b2d54083d72bc%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=100%25" style="border: none; overflow: hidden; height: 687px; width: 100%;"></iframe></span>
-                </div>
+                <div class="fb-comments" data-href="http://localhost:3000/<%= @food.url + '-p' + @food.id.to_s %>" data-numposts="5"></div>
+                <!--<div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://developers.facebook.com/docs/plugins" data-width="100%" data-numposts="5" fb-xfbml-state="rendered">-->
+                  <!--<span style="height: 687px;"><iframe id="f37a3c1fc90e72c" name="ff2299b0b49998" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://www.facebook.com/plugins/comments.php?api_key=483479355145437&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df8cc61935fce1%26domain%3Dleo-food.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fleo-food.bizwebvietnam.net%252Ff1b2d54083d72bc%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=100%25" style="border: none; overflow: hidden; height: 687px; width: 100%;"></iframe></span>-->
+                <!--</div>-->
 
               </section>
             </div>
@@ -171,9 +167,8 @@
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=483479355145437";
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
@@ -198,26 +193,13 @@
             stopOnHover: true
         });
 
-        $('.btn.social-sharing').on('click', function () {
-            var sharedesc = $(".share-desc").text();
-            var sharetitle = $(".share-title").text();
-            type = $(this).attr('data-type');
-            if (type.length) {
-                switch (type) {
-                    case 'facebook':
-                        window.open('http://www.facebook.com/sharer/sharer.php?u=//leo-food.bizwebvietnam.net/hamburger', 'sharer', 'toolbar=0,status=0,width=660,height=445');
-                        break;
-                }
-            }
-        });
-
         function SetOwlCarouselFirstLast(el) {
             el.find(".owl-item").removeClass("first");
             el.find(".owl-item.active").first().addClass("first");
 
             el.find(".owl-item").removeClass("last");
             el.find(".owl-item.active").last().addClass("last");
-        };
+        }
 
         $('.btn-cart').on('click',function(){
             var url = window.location.href;

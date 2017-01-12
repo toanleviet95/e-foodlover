@@ -9,7 +9,6 @@
   <div class="container">
     <div style="padding-top: 20px" id="center_column" class="center_column col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div id="content" class="clearfix">
-
         <div class="row ">
           <div id="apsubcategoriestab_block">
             <% index = 0 %>
@@ -46,7 +45,7 @@
                                       </div>
                                       <div class="product-image-container image">
                                         <a class="product_img_link" href="/<%= partial_category_promote.url ? partial_category_promote.url+'-p'+partial_category_promote.id.to_s : '' %>">
-                                          <%= image_tag 'food/'+partial_category_promote.image_url_1, :class=>"replace-2x img-responsive" %>
+                                          <%= image_tag 'food/'+partial_category_promote.image_url_1, :class=>"replace-2x img-responsive", lazy: true %>
                                         </a>
                                         <% if partial_category_promote.promote_price %>
                                         <span class="product-label sale-box">
@@ -144,29 +143,29 @@
                     </div>
                     <div class="category_desc fix-banner">
                       <% if category.name == 'Cơm' %>
-                          <%= image_tag "banners/banner_com_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_com_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_com_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_com_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Bún & Mỳ' %>
-                          <%= image_tag "banners/banner_bun_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_bun_2.png", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_bun_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_bun_2.png", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Lẩu' %>
-                          <%= image_tag "banners/banner_lau_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_lau_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_lau_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_lau_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Đồ ăn nhanh' %>
-                          <%= image_tag "banners/banner_nhanh_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_nhanh_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_nhanh_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_nhanh_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Đồ nướng' %>
-                          <%= image_tag "banners/banner_nuong_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_nuong_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_nuong_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_nuong_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Hải sản' %>
-                          <%= image_tag "banners/banner_hai_san_1.png", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_hai_san_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_hai_san_1.png", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_hai_san_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% elsif category.name == 'Bánh kẹo' %>
-                          <%= image_tag "banners/banner_banh_1.jpg", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_banh_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_banh_1.jpg", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_banh_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% else %>
-                          <%= image_tag "banners/banner_uong_1.png", :class=>"replace-2x img-responsive" %>
-                          <%= image_tag "banners/banner_uong_2.jpg", :class=>"replace-2x img-responsive" %>
+                          <%= image_tag "banners/banner_uong_1.png", :class=>"replace-2x img-responsive", lazy: true %>
+                          <%= image_tag "banners/banner_uong_2.jpg", :class=>"replace-2x img-responsive", lazy: true %>
                       <% end %>
 
                     </div>
@@ -204,7 +203,7 @@
                                               </div>
                                               <div class="product-image-container image">
                                                 <a class="product_img_link" href="/<%= food.url ? food.url+'-p'+food.id.to_s : '' %>">
-                                                  <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive" %>
+                                                  <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive", lazy: true %>
                                                 </a>
                                                 <% if food.promote_price %>
                                                 <span class="product-label sale-box">
@@ -274,3 +273,11 @@
     </div>
   </div>
 </section>
+<script>
+    $(document).ready(function() {
+        $("img").lazyload({
+            threshold: 500,
+            effect: "fadeIn"
+        });
+    });
+</script>

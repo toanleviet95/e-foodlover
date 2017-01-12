@@ -343,6 +343,12 @@
         goLoginForm();
     });
 
+    $('#btn_login_2').click(function () {
+        $('#loginModal').modal({backdrop: false});
+        $('#error_display_login').hide();
+        goLoginForm();
+    });
+
     $('#close_modal').click(function(){
         $('#loginModal').modal('hide');
     });

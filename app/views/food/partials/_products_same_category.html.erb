@@ -4,6 +4,7 @@
       Món ăn cùng loại
     </h4>
     <div class="block_content">
+      <% if @category_foods.length > 0 %>
       <div id="product_list_bestsell" class="product_list_owl owl-carousel">
         <% @category_foods.each do |category_food| %>
             <div class="product_block">
@@ -52,6 +53,9 @@
             </div>
         <% end %>
       </div>
+          <% else %>
+          <h4 class="text-center">Không có món ăn cùng loại <i class="fa fa-smile-o"></i></h4>
+          <% end %>
     </div>
   </div>
 </div>

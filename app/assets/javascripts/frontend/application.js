@@ -35,4 +35,5 @@
 //= require frontend/owl.carousel.min
 //= require frontend/jquery.mmenu.min.all
 //= require frontend/jquery.flytocart
+//= require frontend/jquery.lazyload
 //= require frontend/script

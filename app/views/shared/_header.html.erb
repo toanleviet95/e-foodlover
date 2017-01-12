@@ -8,7 +8,7 @@
             <h1 class="pull-left">
 
 
-              <a href="/" itemprop="url">
+              <a href="/">
                 <%= image_tag "logo.jpg", :class=>"replace-2x img-responsive" %>
               </a>
 
@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav megamenu">
 
 
-                      <li class="active">
+                      <li class="">
                         <a class="" href="/" target="_self">
                           <span class="">Trang chủ</span>
                         </a>
@@ -68,16 +68,6 @@
 
 
             <div class="inner no-padding col-lg-8 col-md-8 col-sm-8 hidden-xs">
-
-
-              <script type="text/javascript">
-                $(document).ready(function() {
-                  $(".searchbox select").change(function() {
-                    var val = $(this).val();
-                    window.location.href = "https://" + Bizweb.store + val;
-                  });
-                });
-              </script>
               <div class="search_block_top clearfix">
 
                 <div class="nav-search visible">
@@ -135,6 +125,22 @@
                 <span class="fa fa-bars"></span>
                 <span class="menu-only">Menu</span>
               </button>
+              <div>
+                <% if current_user %>
+                    <span style="cursor: pointer" class="login-part">
+                      <% if current_user.image_url %>
+                          <img src="<%= current_user.image_url %>" style="width: 25px; height: 25px;"/>
+                      <% else %>
+                          <%= image_tag 'themes_support/user.png', :style=>"width:25px; height:25px" %>
+                      <% end %>
+                      &nbsp;<%= current_user.name %>
+                      &nbsp;&nbsp;<a href="/tai-khoan/dang-xuat"><span class="label label-danger">Đăng xuất</span></a>
+                    </span>
+                <% else %>
+                    <span style="cursor: pointer" class="login-part" id="btn_login_2"><i class="fa fa-power-off"></i>&nbsp;ĐĂNG NHẬP</span>
+                <% end %>
+
+              </div>
 
             </div>
           </div>
