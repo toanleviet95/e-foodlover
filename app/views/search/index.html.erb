@@ -39,7 +39,7 @@
                           </div>
                           <div class="product-image-container image">
                             <a class="product_img_link" href="/<%= food.url ? food.url+'-p'+food.id.to_s : '' %>" title="<%= food.name %>">
-                              <%= image_tag food.image_url_1_url.to_s, :class=>"replace-2x img-responsive" %>
+                              <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive" %>
                             </a>
                             <% if food.promote_price %>
                               <span class="product-label sale-box">

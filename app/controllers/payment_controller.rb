@@ -12,7 +12,7 @@ class PaymentController < ApplicationController
         else
           price = food.price
         end
-        item = { :id => food.id, :image => food.image_url_1_url, :name => food.name, :price => price, :qty => cart_item["qty"].to_i}
+        item = { :id => food.id, :image => food.image_url_1, :name => food.name, :price => price, :qty => cart_item["qty"].to_i}
         @items << item
       end
       if cookies[:email]
@@ -172,7 +172,7 @@ class PaymentController < ApplicationController
       @items = []
       invoices.each do |invoice|
         food = Food.new.get_food_by_id(invoice.food_id)
-        item = { :id => food.id, :image => food.image_url_1_url, :name => food.name, :price => invoice.amount, :qty => invoice.quantity}
+        item = { :id => food.id, :image => food.image_url_1, :name => food.name, :price => invoice.amount, :qty => invoice.quantity}
         @items << item
       end
       cookies.delete :cart_items

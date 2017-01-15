@@ -11,7 +11,7 @@ class CartController < ApplicationController
         else
           price = food.price
         end
-        item = { :id => food.id, :image => food.image_url_1_url, :name => food.name, :price => price, :qty => cart_item["qty"].to_i, :url => food.url, :stock_qty => food.stock_qty}
+        item = { :id => food.id, :image => food.image_url_1, :name => food.name, :price => price, :qty => cart_item["qty"].to_i, :url => food.url, :stock_qty => food.stock_qty}
         @items << item
       end
     else

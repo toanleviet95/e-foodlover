@@ -1,12 +1,5 @@
 class HomeController < ApplicationController
   def index
-    if current_user and current_user.role_id != 1
-      session[:email] = nil
-      session[:role_id] = nil
-      cookies.delete :email
-      cookies.delete :role_id
-      cookies.delete :provider
-    end
     @sliders = Slider.new.get_sliders #Slider
     @categories = Category.new.get_parent_categories #Loại cha
     @partial_category_promotes = [] #Sản phẩm khuyến mãi
@@ -23,7 +16,7 @@ class HomeController < ApplicationController
       #Duyệt vòng lặp loại con để lấy sản phẩm trong từng loại con có trong loại cha
       i = 0
       @child_categories[index].each do |child_category|
-        @foods[[index, i]] = Food.new.get_latest_foods(child_category.id)
+        @foods[[index,i]] = Food.new.get_latest_foods(child_category.id)
         i = i + 1
       end
       index = index + 1

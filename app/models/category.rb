@@ -9,7 +9,4 @@ class Category < ApplicationRecord
   def get_category(category_id)
     Category.find(category_id)
   end
-  def get_all_child_categories
-    Category.where('parent_id <> 0')
-  end
 end
