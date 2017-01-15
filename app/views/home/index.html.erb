@@ -45,7 +45,7 @@
                                       </div>
                                       <div class="product-image-container image">
                                         <a class="product_img_link" href="/<%= partial_category_promote.url ? partial_category_promote.url+'-p'+partial_category_promote.id.to_s : '' %>">
-                                          <%= image_tag 'food/'+partial_category_promote.image_url_1, :class=>"replace-2x img-responsive", lazy: true %>
+                                          <%= image_tag partial_category_promote.image_url_1_url.to_s, :class=>"replace-2x img-responsive", lazy: true %>
                                         </a>
                                         <% if partial_category_promote.promote_price %>
                                         <span class="product-label sale-box">
@@ -203,7 +203,7 @@
                                               </div>
                                               <div class="product-image-container image">
                                                 <a class="product_img_link" href="/<%= food.url ? food.url+'-p'+food.id.to_s : '' %>">
-                                                  <%= image_tag "food/"+food.image_url_1, :class=>"replace-2x img-responsive", lazy: true %>
+                                                  <%= image_tag food.image_url_1_url.to_s, :class=>"replace-2x img-responsive", lazy: true %>
                                                 </a>
                                                 <% if food.promote_price %>
                                                 <span class="product-label sale-box">

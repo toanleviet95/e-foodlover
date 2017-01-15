@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="image ">
                                       <a class="product_img_link" href="/<%= partial_best_sell_food.url ? partial_best_sell_food.url+'-p'+partial_best_sell_food.id.to_s : '' %>" title="<%= partial_best_sell_food.name %>">
-                                        <%= image_tag "food/"+partial_best_sell_food.image_url_1, :class=>"replace-2x img-responsive" %>
+                                        <%= image_tag partial_best_sell_food.image_url_1_url.to_s, :class=>"replace-2x img-responsive" %>
                                       </a>
                                     </div>
                                   </div>

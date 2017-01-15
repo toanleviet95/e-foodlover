@@ -1,0 +1,168 @@
+<!-- Page-Title -->
+<div class="row">
+  <div class="col-sm-12">
+    <h4 class="page-title"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Quản lý hóa đơn</h4>
+  </div>
+</div>
+<!-- Page-Title -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-box table-responsive">
+
+      <h4 class="m-t-0 header-title"><b>Hóa đơn của khách hàng</b></h4>
+      <input type="hidden" value="<%= @user.user_id %>">
+      <p>Thành viên bắt đầu tham gia từ ngày: <b><%= current_user.created_date.strftime("%d/%m/%Y")  %></b></p>
+      <p>Khoản thu hiện tại: <b><span id="income_amount"><%= @income.amount ? @income.amount.to_i : 0 %></span>đ</b></p>
+      <table id="datatable-responsive-invoice" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Phê duyệt</th>
+          <th>Hủy</th>
+          <th>Ngày tạo</th>
+          <th>Tên khách hàng</th>
+          <th>Email</th>
+          <th>Điện thoại</th>
+          <th>Địa chỉ</th>
+          <th>Thành phố</th>
+          <th>Tên món ăn</th>
+          <th>Hình ảnh</th>
+          <th>Số lượng mua</th>
+          <th>Đơn giá</th>
+          <th>Thành tiền</th>
+          <th>Hình thức vận chuyển</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if @invoices.length > 0 %>
+        <% i = 0 %>
+        <% @invoices.each do |invoice| %>
+        <% i = i + 1 %>
+        <tr>
+          <td align="center">
+            <% if invoice.status == true %>
+                <%= check_box_tag 'status_'+invoice.invoice_id.to_s, '1', true %>
+            <% else %>
+                <%= check_box_tag 'status_'+invoice.invoice_id.to_s, '0' %>
+            <% end %>
+          </td>
+          <td>
+            <button id="del_<%= invoice.invoice_id.to_s %>" class="btn btn-sm btn-danger btn-del"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Hủy</button>
+          </td>
+          <td><%= invoice.created_date.strftime("%d/%m/%Y") %></td>
+          <td><%= invoice.transaction_payment.customer_name ? invoice.transaction_payment.customer_name : '' %></td>
+          <td><%= invoice.transaction_payment.customer_email ? invoice.transaction_payment.customer_email : '' %></td>
+          <td><%= invoice.transaction_payment.customer_phone ? invoice.transaction_payment.customer_phone : '' %></td>
+          <td><%= invoice.transaction_payment.customer_address ? invoice.transaction_payment.customer_address : '' %></td>
+          <td><%= invoice.transaction_payment.customer_city ? invoice.transaction_payment.customer_city : '' %></td>
+          <td><%= invoice.food.name ? invoice.food.name : '' %></td>
+          <td align="center">
+            <% if invoice.food.image_url_1_url %>
+              <%= image_tag invoice.food.image_url_1_url.to_s, :class=>"img-responsive", width: '50' %>
+            <% end %>
+          </td>
+          <td><%= invoice.quantity ? invoice.quantity : '' %></td>
+          <td><%= invoice.amount ? number_to_currency(invoice.amount,:unit => '', :precision => 0) : '' %></td>
+          <td class="invoice_amount"><%= invoice.transaction_payment.amount ? number_to_currency(invoice.transaction_payment.amount,:unit => '', :precision => 0) : '' %></td>
+          <td><%= invoice.transaction_payment.payment_method ? invoice.transaction_payment.payment_method : '' %></td>
+        </tr>
+        <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#datatable-responsive-invoice').DataTable({
+            "columnDefs": [
+                {"targets": 0, "orderable": false, "searchable": false},
+                {"targets": 1, "orderable": false, "searchable": false}
+            ]
+        });
+    } );
+
+
+    function changeFormatCurrency(cost){
+        return Number(cost.replace(/[^0-9\.]+/g,""));
+    }
+
+//    TableManageButtons.init();
+    $('input[type=checkbox]').confirm({
+        title: 'Hệ thống xác thực',
+        content: 'Bạn duyệt/không duyệt hóa đơn này ?',
+        buttons: {
+            ok: function(){
+                var obj = this.$target;
+                var id = this.$target.attr('id');
+                var str = id.split('_');
+                id = str[str.length-1];
+                var user_id = $('input[type=hidden]').val();
+                var status = this.$target.val();
+                var income = $('#income_amount').text();
+                var amount = changeFormatCurrency(obj.parent().parent().find('.invoice_amount').text());
+                status = (status == 1) ? false : true;
+                if(status == true){
+                    income = income * 1 + amount * 1;
+                }else{
+                    income = income * 1 - amount * 1;
+                }
+                $.ajax({
+                    url : url_base+"/hoa-don/cap-nhat-trang-thai/"+id,
+                    type : "PUT",
+                    dateType:"json",
+                    data : {status: status, income: income, user_id: user_id},
+                    success : function (response){
+                        if(response.message == 'success'){
+                            if(status == false){
+                                obj.val(0);
+                                obj.prop('checked',false);
+                                $('#income_amount').text(income.toString());
+                                $('#del_'+id).show();
+                            }else{
+                                obj.val(1);
+                                obj.prop('checked',true);
+                                $('#income_amount').text(income.toString());
+                                $('#del_'+id).hide();
+                            }
+                        }
+                    },
+                    error: function() {
+                        return false;
+                    }
+                });
+            },
+            cancel: function () {
+
+            }
+        }
+    });
+    $('.btn-del').confirm({
+        title: 'Hệ thống xác thực',
+        content: 'Bạn chọn hủy hóa đơn này ?',
+        buttons: {
+            ok: function(){
+                var obj = this.$target;
+                var id = this.$target.attr('id');
+                var str = id.split('_');
+                id = str[str.length-1];
+                $.ajax({
+                    url : url_base+"/hoa-don/xoa/"+id,
+                    type : "DELETE",
+                    success : function (response){
+                        if(response.message == 'success'){
+                            window.location.reload();
+                        }
+                    },
+                    error: function() {
+                        return false;
+                    }
+                });
+            },
+            cancel: function () {
+
+            }
+        }
+    });
+</script>

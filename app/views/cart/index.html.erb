@@ -49,7 +49,7 @@
                 <div class="cpro_item col-xs-12 col-sm-2 col-md-1">
                   <div class="cpro_item_inner">
                     <a href="/<%= item[:url] ? item[:url]+'-p'+item[:id].to_s : '' %>" class="cart__image">
-                      <%= image_tag 'food/'+item[:image], :width=>'75', :height=>'75', :alt=>item[:name] %>
+                      <%= image_tag item[:image], :width=>'75', :height=>'75', :alt=>item[:name] %>
                     </a>
                   </div>
                 </div>
