@@ -63,11 +63,11 @@ gem 'paypal-sdk-rest'
 gem 'lazyload-rails'
 
 # Use CK Editor
-gem 'ckeditor'
+# gem 'ckeditor'
 
 # Use Carrierwave to upload files
-gem 'carrierwave'
-gem 'mini_magick'
+# gem 'carrierwave'
+# gem 'mini_magick'
 
 
 group :development, :test do
