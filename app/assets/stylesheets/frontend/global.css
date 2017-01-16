@@ -4321,8 +4321,8 @@ button.close {
 	color:red;
 }
 .fix-btn-product{
-	padding: 7px 15px; !important;
-	line-height: 28px;!important;
+	padding: 7px 15px !important;
+	line-height: 28px !important;
 	border: none !important;
     border-radius: 2px !important;
 	font-size: 13px !important;
