@@ -29,6 +29,5 @@
 //= require backend/datatables.init
 //= require backend/jquery.core
 //= require backend/jquery.app
-//= require ckeditor/init
 //= require backend/jquery-confirm.min
 //= require backend/script
