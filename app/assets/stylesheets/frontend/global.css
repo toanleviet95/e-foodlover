@@ -4334,8 +4334,8 @@ button.close {
 }
 .fix-inp-product{
 	text-align:center;
-	width: 80px;!important;
-	line-height: 37px;!important;
+	width: 80px !important;
+	line-height: 37px !important;
 }
 #ProductPrice{
 	color:#f8694d;

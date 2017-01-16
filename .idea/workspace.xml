@@ -109,8 +109,8 @@
       <file leaf-file-name="global.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/frontend/global.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="4330" column="1" lean-forward="true" selection-start-line="4330" selection-start-column="1" selection-end-line="4330" selection-end-column="1" />
+            <state relative-caret-position="162">
+              <caret line="4338" column="1" lean-forward="true" selection-start-line="4338" selection-start-column="1" selection-end-line="4338" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -140,8 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Toàn</find>
-      <find>cart</find>
       <find>main</find>
       <find>toggle</find>
       <find>otherAddress</find>
@@ -170,6 +168,8 @@
       <find>image_tag</find>
       <find>image_url_1_url</find>
       <find>image</find>
+      <find>.fix-btn-product{</find>
+      <find>;!important;</find>
     </findStrings>
     <replaceStrings>
       <replace>Ăn rẻ bất ngờ !!!</replace>
@@ -1254,12 +1254,12 @@
       <workItem from="1484331916334" duration="38027000" />
       <workItem from="1484416026112" duration="20647000" />
       <workItem from="1484449003728" duration="3966000" />
-      <workItem from="1484564138103" duration="5973000" />
+      <workItem from="1484564138103" duration="6240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="654519000" />
+    <option name="totallyTimeSpent" value="654786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -1702,8 +1702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/frontend/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="4330" column="1" lean-forward="true" selection-start-line="4330" selection-start-column="1" selection-end-line="4330" selection-end-column="1" />
+        <state relative-caret-position="162">
+          <caret line="4338" column="1" lean-forward="true" selection-start-line="4338" selection-start-column="1" selection-end-line="4338" selection-end-column="1" />
           <folding />
         </state>
       </provider>
