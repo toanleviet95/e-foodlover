@@ -66,8 +66,8 @@ gem 'lazyload-rails'
 # gem 'ckeditor'
 
 # Use Carrierwave to upload files
-# gem 'carrierwave'
-# gem 'mini_magick'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 group :development, :test do
