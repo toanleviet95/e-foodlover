@@ -38,14 +38,14 @@
               <div class="product-left-column col-xs-12 col-sm-12 col-md-5">
                   <div class="sp-loading"><%= image_tag "sp-loading.gif" %><br>LOADING IMAGES</div>
                   <div class="sp-wrap">
-                    <% if @food.image_url_1 %>
-                      <a href="<%= image_url('food/'+@food.image_url_1) %>"><%= image_tag 'food/'+@food.image_url_1 %></a>
+                    <% if @food.image_url_1_url %>
+                      <a href="<%= image_url(@food.image_url_1_url) %>"><%= image_tag @food.image_url_1_url %></a>
                     <% end %>
-                    <% if @food.image_url_2 %>
-                      <a href="<%= image_url('food/'+@food.image_url_2) %>"><%= image_tag 'food/'+@food.image_url_2 %></a>
+                    <% if @food.image_url_2_url %>
+                      <a href="<%= image_url(@food.image_url_2_url) %>"><%= image_tag @food.image_url_2_url %></a>
                     <% end %>
-                    <% if @food.image_url_3 %>
-                      <a href="<%= image_url('food/'+@food.image_url_3) %>"><%= image_tag 'food/'+@food.image_url_3 %></a>
+                    <% if @food.image_url_3_url %>
+                      <a href="<%= image_url(@food.image_url_3_url) %>"><%= image_tag @food.image_url_3_url %></a>
                     <% end %>
                   </div>
                 <div class="fb-like" data-href="http://localhost:3000/<%= @food.url + '-p' + @food.id.to_s %>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>

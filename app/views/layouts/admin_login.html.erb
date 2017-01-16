@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="E-FOODLOVER">
+
+  <meta property="og:image" content="<%= asset_path('logo.jpg') %>">
+  <meta property="og:image:secure_url" content="<%= asset_path('logo.jpg') %>">
+  <meta property="og:url" content="http://www.e-foodlover.com">
+  <meta property="og:site_name" content="E-FOODLOVER">
+
+  <link rel="canonical" href="http://www.e-foodlover.com">
+  <link rel="icon" href="<%= asset_path('favicon.ico') %>">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ADMIN PANEL</title>
+  <%= stylesheet_link_tag 'backend/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'backend/application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <%= yield %>
+<%= javascript_include_tag 'backend/jquery.core', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'backend/jquery.app', 'data-turbolinks-track': 'reload' %>
+</body>
+</html>

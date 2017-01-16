@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170114014200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "parent_id",              null: false
     t.integer "sort_order",             null: false
     t.index ["name"], name: "category_unq", unique: true, using: :btree
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
   create_table "foods", primary_key: "food_id", id: :integer, default: -> { "nextval('food_id_seq'::regclass)" }, force: :cascade, comment: "Món ăn" do |t|
@@ -81,16 +93,15 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "transactions", primary_key: "transaction_id", id: :integer, default: -> { "nextval('transaction_id_seq'::regclass)" }, force: :cascade, comment: "Thông tin phiên giao dịch" do |t|
     t.string   "customer_name",    limit: 150,                                         null: false
-    t.string   "customer_email",   limit: 250,                                         null: false
+    t.string   "customer_email",   limit: 255,                                         null: false
     t.string   "customer_phone",   limit: 20,                                          null: false
-    t.string   "customer_address", limit: 250,                                         null: false
+    t.string   "customer_address", limit: 255,                                         null: false
     t.decimal  "amount",                       precision: 20,                          null: false
-    t.text     "payment_info"
-    t.string   "security_code",    limit: 100
     t.datetime "created_date",                                default: -> { "now()" }, null: false
     t.boolean  "status",                                                               null: false
     t.string   "payment_method",   limit: 50,                                          null: false
     t.integer  "quantity",                                                             null: false
+    t.string   "customer_city",    limit: 150,                                         null: false
   end
 
   create_table "users", primary_key: "user_id", id: :integer, default: -> { "nextval('user_id_seq'::regclass)" }, force: :cascade, comment: "Thông tin chi tiết của người dùng" do |t|

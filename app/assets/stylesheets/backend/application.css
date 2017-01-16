@@ -9,18 +9,18 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
-
+ *= require bootstrap
  *= require font-awesome
  *= require nprogress
  *= require nprogress-bootstrap
  *= require nprogress-turbolinks5
  *= require dataTables/jquery.dataTables
  *= require dataTables/extras/dataTables.responsive
- *= require bootstrap
  *= require backend/core
  *= require backend/components
- *= require backend/icons
  *= require backend/pages
  *= require backend/menu
  *= require backend/responsive
+ *= require backend/jquery-confirm.min
+ *= require backend/style
  */

@@ -27,7 +27,7 @@
                 </div>
                 <div class="product-image-container image">
                   <a class="product_img_link" href="/<%= category_food.url ? category_food.url+'-p'+category_food.id.to_s : '' %>" title="Súp thập cẩm">
-                    <%= image_tag 'food/'+category_food.image_url_1, :class => "replace-2x img-responsive" %>
+                    <%= image_tag category_food.image_url_1_url.to_s, :class => "replace-2x img-responsive" %>
                   </a>
                   <% if category_food.promote_price %>
                         <span class="product-label sale-box">

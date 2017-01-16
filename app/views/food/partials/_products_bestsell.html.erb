@@ -12,7 +12,7 @@
         <div class="product-block">
           <div class="product-container media">
             <a class="products-block-image img pull-left" href="/<%= best_sell_food.url ? best_sell_food.url+'-p'+best_sell_food.id.to_s : '' %>" title="<%= best_sell_food.name %>">
-              <%= image_tag "food/"+best_sell_food.image_url_1, :class=>"replace-2x img-responsive" %>
+              <%= image_tag best_sell_food.image_url_1_url.to_s, :class=>"replace-2x img-responsive" %>
             </a>
             <div class="media-body">
               <div class="product-content">

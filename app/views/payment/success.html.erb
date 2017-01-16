@@ -44,7 +44,7 @@
                       <li class="product product-has-image clearfix">
                       <div class="product-thumbnail pull-left">
                         <div class="product-thumbnail__wrapper">
-                          <%= image_tag 'food/'+item[:image], :class=>'product-thumbnail__image', :alt=>item[:name] %>
+                          <%= image_tag item[:image], :class=>'product-thumbnail__image', :alt=>item[:name] %>
                         </div>
                         <span class="product-thumbnail__quantity unprint" aria-hidden="true"><%= item[:qty] %></span>
                       </div>

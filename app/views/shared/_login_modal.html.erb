@@ -316,6 +316,10 @@
                         $('#error_login').html('Đăng nhập <strong>không thành công</strong>');
                         $('#error_display_login').show();
                     }
+                    if(response.message == 'active'){
+                        $('#error_login').html('Tài khoản của bạn đã bị <strong>block bởi ADMIN</strong>');
+                        $('#error_display_login').show();
+                    }
                 },
                 error: function(response) {
                     $('#error_login').html('Status '+response.status+': '+response.statusText);

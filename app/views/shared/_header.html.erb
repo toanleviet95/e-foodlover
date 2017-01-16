@@ -45,6 +45,7 @@
                       </li>
                     </ul>
                     <div>
+                      <%= cookies[:email] %>
                       <% if current_user %>
                           <span style="cursor: pointer" class="login-part">
                             <% if current_user.image_url %>

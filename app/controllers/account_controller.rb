@@ -65,6 +65,12 @@ class AccountController < ApplicationController
             account.password = password
 
             if user.save! and account.save!
+              if role_id.to_i == 2
+                income = Income.new
+                income.user_id = user.user_id
+                income.amount = 0
+                income.save!
+              end
               respond_to do |format|
                 response = { :status => "200", :message => "success" }
                 format.json  { render :json => response }
@@ -101,6 +107,12 @@ class AccountController < ApplicationController
             account.password = password
 
             if user.save! and account.save!
+              if role_id.to_i == 2
+                income = Income.new
+                income.user_id = user.user_id
+                income.amount = 0
+                income.save!
+              end
               respond_to do |format|
                 response = { :status => "200", :message => "success" }
                 format.json  { render :json => response }
@@ -128,17 +140,24 @@ class AccountController < ApplicationController
       if account
         password = BCrypt::Password.new(account.password)
         if password == params[:password]
-          session[:email] = account.email
-          session[:role_id] = account.role_id
-          cookies[:email] = { :value => account.email, :expires => Time.now + 24*3600}
-          cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 24*3600}
-          cookies[:provider] = { :value => account.provider, :expires => Time.now + 24*3600}
-          if account.role_id == 3
-            redirect_to :back
-          elsif account.role_id == 2
-            redirect_to '/admin/dau-bep'
+          if account.status == false
+            respond_to do |format|
+              response = { :status => "502", :message => "active" }
+              format.json  { render :json => response }
+            end
           else
-
+            session[:email] = account.email
+            session[:role_id] = account.role_id
+            cookies[:email] = { :value => account.email, :expires => Time.now + 24*3600}
+            cookies[:role_id] = { :value => account.role_id, :expires => Time.now + 24*3600}
+            cookies[:provider] = { :value => account.provider, :expires => Time.now + 24*3600}
+            if account.role_id == 3
+              redirect_to :back
+            elsif account.role_id == 2
+              redirect_to '/admin/thanh-vien/quan-ly-hoa-don'
+            else
+              redirect_to '/admin/quan-tri/quan-ly-tai-khoan'
+            end
           end
         else
           respond_to do |format|
@@ -167,5 +186,20 @@ class AccountController < ApplicationController
     cookies.delete :role_id
     cookies.delete :provider
     redirect_to :back
+  end
+
+  def edit_status
+    account = Account.new.get_account_by_id(params[:account_id])
+    if account.update_attributes(status: params[:status])
+      respond_to do |format|
+        response = { :status => "200", :message => "success" }
+        format.json  { render :json => response }
+      end
+    else
+      respond_to do |format|
+        response = { :status => "501", :message => "fail" }
+        format.json  { render :json => response }
+      end
+    end
   end
 end

@@ -16,9 +16,9 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require backend/modernizr.min
+//= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
-//= require bootstrap
 //= require backend/detect
 //= require backend/fastclick
 //= require backend/jquery.blockUI
@@ -29,3 +29,6 @@
 //= require backend/datatables.init
 //= require backend/jquery.core
 //= require backend/jquery.app
+//= require ckeditor/init
+//= require backend/jquery-confirm.min
+//= require backend/script
