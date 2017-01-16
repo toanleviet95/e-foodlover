@@ -2,9 +2,9 @@ class Food < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :invoices
-  mount_uploader :image_url_1, Image1Uploader
-  mount_uploader :image_url_2, Image2Uploader
-  mount_uploader :image_url_3, Image3Uploader
+  # mount_uploader :image_url_1, Image1Uploader
+  # mount_uploader :image_url_2, Image2Uploader
+  # mount_uploader :image_url_3, Image3Uploader
   self.per_page = 12
   def get_partial_category_promotes(category_id)
     Food.joins(:category).where('parent_id = ? and promote_price > 0',category_id).last(4)
