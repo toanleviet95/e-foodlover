@@ -62,10 +62,7 @@ gem 'paypal-sdk-rest'
 # Use lazy loading images
 gem 'lazyload-rails'
 
-# Use CK Editor
-#gem 'ckeditor'
-
-gem 'non-stupid-digest-assets', '~> 1.0.4'
+gem 'tinymce-rails'
 
 # Use Carrierwave to upload files
 gem 'carrierwave'
@@ -80,10 +77,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-end
-
-group :production do
-  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
