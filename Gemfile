@@ -65,6 +65,8 @@ gem 'lazyload-rails'
 # Use CK Editor
 gem 'ckeditor'
 
+gem 'non-stupid-digest-assets', '~> 1.0.4'
+
 # Use Carrierwave to upload files
 gem 'carrierwave'
 gem 'mini_magick'
