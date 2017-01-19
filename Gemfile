@@ -63,7 +63,7 @@ gem 'paypal-sdk-rest'
 gem 'lazyload-rails'
 
 # Use CK Editor
-gem 'ckeditor'
+#gem 'ckeditor'
 
 gem 'non-stupid-digest-assets', '~> 1.0.4'
 

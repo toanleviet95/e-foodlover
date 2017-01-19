@@ -19,5 +19,3 @@ Rails.application.config.assets.precompile += %w( frontend/jquery.creditCardVali
 Rails.application.config.assets.precompile += %w( backend/jquery.core.js )
 Rails.application.config.assets.precompile += %w( backend/jquery.app.js )
 Rails.application.config.assets.precompile += %w( backend/auto-slug.js )
-Rails.application.config.assets.precompile += %w(ckeditor/config.js)
-Rails.application.config.assets.precompile += %w( ckeditor/* )
