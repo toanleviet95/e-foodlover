@@ -30,4 +30,5 @@
 //= require backend/jquery.core
 //= require backend/jquery.app
 //= require backend/jquery-confirm.min
+//= require ckeditor/init
 //= require backend/script

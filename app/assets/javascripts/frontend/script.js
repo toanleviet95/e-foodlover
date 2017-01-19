@@ -14,6 +14,7 @@ $(document).ready(function(){
             });
         })
     }(window.jQuery);
+
     $('#btn_tim_kiem').click(function(){
         var key = $('#tu_khoa').val();
         if(!key.trim()){
